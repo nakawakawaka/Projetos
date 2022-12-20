@@ -136,3 +136,7 @@ main section .banner {
     align-items: center;
 
 }
+
+main .container img {
+    max-height: 50vh;
+}
