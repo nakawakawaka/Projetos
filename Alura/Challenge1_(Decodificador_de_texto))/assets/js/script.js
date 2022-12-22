@@ -1,18 +1,19 @@
 const input = document.querySelector("#texto");
+const label = document.querySelector('label');
 let btnCriptografar = document.querySelector('.criptografar');
 
 btnCriptografar.addEventListener('click', e => {
     e.preventDefault();
     if (!input.value) {
         const erro = 'ERRO: Insira um texto para ser criptografado';
-        const label = document.querySelector('label');
-
+        
         label.innerHTML = erro;
     } else {
         const res = document.querySelector('.resultado');
         if(!res.classList.contains('limpo')) {
             res.innerHTML = '';
             res.classList.add('limpo');
+            label.innerHTML = 'Criptografe ou Descriptografe seu texto'
             criaBtn(res);
         }
         const textCrip = criptografar(input.value);
