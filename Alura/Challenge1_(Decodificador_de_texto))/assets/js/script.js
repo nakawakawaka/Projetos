@@ -3,7 +3,6 @@ let btnCriptografar = document.querySelector('.criptografar');
 
 btnCriptografar.addEventListener('click', e => {
     e.preventDefault();
-    console.log(input.value)
     if (!input.value) {
         const erro = 'ERRO: Insira um texto para ser criptografado';
         const label = document.querySelector('label');
@@ -11,18 +10,33 @@ btnCriptografar.addEventListener('click', e => {
         label.innerHTML = erro;
     } else {
         const res = document.querySelector('.resultado');
+        if(!res.classList.contains('limpo')) {
+            res.innerHTML = '';
+            res.classList.add('limpo');
+            criaBtn(res);
+        }
         const textCrip = criptografar(input.value);
-        const conteudo = criaElemento(textCrip);
-        res.appendChild(conteudo);
+        criaElemento(textCrip, res);
         input.value = '';
         input.focus();
     }
 });
 
-function criaElemento(el) {
+function criaElemento(text, el) {
     const div = document.createElement('div');
-    const content = document.createTextNode(el);
-    return div.appendChild(content);
+    const content = document.createTextNode(text);
+    div.setAttribute('class', 'res');
+    div.appendChild(content);
+    el.appendChild(div)
+}
+
+function criaBtn(el) {
+    const btn = document.createElement('button');
+    const content = document.createTextNode('Copiar');
+    btn.setAttribute('type', 'button');
+    btn.setAttribute('class', 'copy');
+    btn.appendChild(content);
+    el.appendChild(btn);
 }
 
 function criptografar (conteudo) {
