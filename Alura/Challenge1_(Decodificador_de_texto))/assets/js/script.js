@@ -1,12 +1,21 @@
 const input = document.querySelector("#texto");
 const label = document.querySelector('label');
-let btnCriptografar = document.querySelector('.criptografar');
+const btnCriptografar = document.querySelector('.criptografar');
+const btnDescriptografar = document.querySelector('.descriptografar');
 
 btnCriptografar.addEventListener('click', e => {
     e.preventDefault();
-    if (!input.value) {
-        const erro = 'ERRO: Insira um texto para ser criptografado';
-        
+    pegaConteudo(input.value, criptografar);
+});
+
+btnDescriptografar.addEventListener('click', e => {
+    e.preventDefault();
+    pegaConteudo(input.value, descriptografar);
+});
+
+function pegaConteudo (content, funcao) {
+    if (!content) {
+        const erro = 'ERRO: Insira um texto para ser Criptografado';
         label.innerHTML = erro;
     } else {
         const res = document.querySelector('.resultado');
@@ -16,12 +25,12 @@ btnCriptografar.addEventListener('click', e => {
             label.innerHTML = 'Criptografe ou Descriptografe seu texto'
             criaBtn(res);
         }
-        const textCrip = criptografar(input.value);
+        const textCrip = funcao(content.toLowerCase());
         criaElemento(textCrip, res);
-        input.value = '';
+        content = '';
         input.focus();
     }
-});
+}
 
 function criaElemento(text, el) {
     const div = document.createElement('div');
@@ -65,4 +74,14 @@ function criptografar (conteudo) {
         }
     }
     return newArray.join('');
+}
+
+function descriptografar (conteudo) {
+    let content = conteudo;
+    if (conteudo.indexOf('ai')) content = content.replace(/ai/g, 'a');
+    if (conteudo.indexOf('enter')) content = content.replace(/enter/g, 'e');
+    if (conteudo.indexOf('imes')) content = content.replace(/imes/g, 'i');
+    if (conteudo.indexOf('ober')) content = content.replace(/ober/g, 'o');
+    if (conteudo.indexOf('ufat')) content = content.replace(/ufat/g, 'u');
+    return content
 }
