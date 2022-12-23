@@ -8,19 +8,19 @@
     <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 <body>
-    <div class="logo">logo</div>
     <div class="container">
+        <div class="logo">logo</div>
         <form action="">
-            <label for="texto">Digite seu texto</label>
-            <input type="text" name="texto" id="texto">
-            <div>
-                <small>Apenas letras minusculas e sem acento.</small>
+            <label for="texto"></label>
+            <textarea name="texto" id="texto" cols="30" rows="10" placeholder="Digite seu texto"></textarea>
+            <div class="btnDiv">
+                <small>	&#9888;Apenas letras minusculas e sem acento.</small>
                 <button class="criptografar" type="submit">Criptografar</button>
                 <button class="descriptografar" type="submit">Descriptografar</button>
             </div>
         </form>
         <div class="resultado">
-            <img src="" alt="">
+            <img src="./assets/img/imagen.svg" alt="">
             <h2>Nenhuma menssagem encontrada</h2>
             <p>Digite um texto que você deseja criptografar ou descriptografar</p>
         </div>

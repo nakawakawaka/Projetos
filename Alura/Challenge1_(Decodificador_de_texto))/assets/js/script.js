@@ -1,16 +1,14 @@
 const input = document.querySelector("#texto");
 const label = document.querySelector('label');
-const btnCriptografar = document.querySelector('.criptografar');
-const btnDescriptografar = document.querySelector('.descriptografar');
+const res = document.querySelector('.resultado');
 
-btnCriptografar.addEventListener('click', e => {
+document.addEventListener ('click', e => {
     e.preventDefault();
-    pegaConteudo(input.value, criptografar);
-});
-
-btnDescriptografar.addEventListener('click', e => {
-    e.preventDefault();
-    pegaConteudo(input.value, descriptografar);
+    const el = e.target;
+    console.log(el);
+    if (el.classList.contains('criptografar')) pegaConteudo(input.value, criptografar);
+    if (el.classList.contains('descriptografar')) pegaConteudo(input.value, descriptografar);
+    if (el.classList.contains('copy')) document.execCommand('copy');
 });
 
 function pegaConteudo (content, funcao) {
@@ -18,16 +16,15 @@ function pegaConteudo (content, funcao) {
         const erro = 'ERRO: Insira um texto para ser Criptografado';
         label.innerHTML = erro;
     } else {
-        const res = document.querySelector('.resultado');
         if(!res.classList.contains('limpo')) {
             res.innerHTML = '';
             res.classList.add('limpo');
-            label.innerHTML = 'Criptografe ou Descriptografe seu texto'
+            label.innerHTML = 'Criptografe ou Descriptografe seu texto';
             criaBtn(res);
         }
         const textCrip = funcao(content.toLowerCase());
         criaElemento(textCrip, res);
-        content = '';
+        input.value = '';
         input.focus();
     }
 }
@@ -37,7 +34,7 @@ function criaElemento(text, el) {
     const content = document.createTextNode(text);
     div.setAttribute('class', 'res');
     div.appendChild(content);
-    el.appendChild(div)
+    el.appendChild(div);
 }
 
 function criaBtn(el) {
@@ -83,5 +80,5 @@ function descriptografar (conteudo) {
     if (conteudo.indexOf('imes')) content = content.replace(/imes/g, 'i');
     if (conteudo.indexOf('ober')) content = content.replace(/ober/g, 'o');
     if (conteudo.indexOf('ufat')) content = content.replace(/ufat/g, 'u');
-    return content
+    return content;
 }
