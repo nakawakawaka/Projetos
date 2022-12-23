@@ -134,3 +134,52 @@ footer {
     bottom: 0;
     text-align: center;
 }
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        margin: 40px;
+    }
+
+    .logo {
+        position: initial;
+        display: block;
+        align-self: flex-start;
+    }
+
+
+
+    .resultado {
+        margin-top: 40px;
+    }
+
+    .resultado.limpo {
+        flex-direction: column-reverse;
+    }
+
+    img {
+        display: none;
+    }
+
+    button.copy {
+        position: initial;
+    }
+
+    footer {
+        position: initial;
+    }
+}
+
+@media (max-width: 375px) {
+    button {
+        margin-top: 15px;
+    }
+    .btnDiv {
+        flex-direction: column;
+        gap: 0;
+    }
+
+    small {
+        position: initial;
+    }
+}
