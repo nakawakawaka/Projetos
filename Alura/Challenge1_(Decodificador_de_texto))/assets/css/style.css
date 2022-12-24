@@ -138,7 +138,7 @@ footer {
 @media (max-width: 768px) {
     .container {
         flex-direction: column;
-        margin: 40px;
+        height: 100%;
     }
 
     .logo {
@@ -147,10 +147,13 @@ footer {
         align-self: flex-start;
     }
 
-
+    form {
+        width: 90%;
+    }
 
     .resultado {
-        margin-top: 40px;
+        margin: 40px 0;
+        width: 90%;
     }
 
     .resultado.limpo {
@@ -170,7 +173,9 @@ footer {
     }
 }
 
-@media (max-width: 375px) {
+@media (max-width: 640px) {
+
+    
     button {
         margin-top: 15px;
     }
