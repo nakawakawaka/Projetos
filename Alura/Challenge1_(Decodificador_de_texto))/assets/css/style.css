@@ -154,6 +154,7 @@ footer {
     .resultado {
         margin: 40px 0;
         width: 90%;
+        word-break: break-all;
     }
 
     .resultado.limpo {
