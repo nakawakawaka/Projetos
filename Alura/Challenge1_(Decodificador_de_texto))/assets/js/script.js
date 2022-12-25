@@ -5,7 +5,6 @@ const res = document.querySelector('.resultado');
 document.addEventListener ('click', e => {
     e.preventDefault();
     const el = e.target;
-    console.log(el);
     if (el.classList.contains('criptografar')) pegaConteudo(input.value, criptografar);
     if (el.classList.contains('descriptografar')) pegaConteudo(input.value, descriptografar);
     if (el.classList.contains('copy')) document.execCommand('copy');
@@ -75,10 +74,10 @@ function criptografar (conteudo) {
 
 function descriptografar (conteudo) {
     let content = conteudo;
-    if (conteudo.indexOf('ai')) content = content.replace(/ai/g, 'a');
-    if (conteudo.indexOf('enter')) content = content.replace(/enter/g, 'e');
-    if (conteudo.indexOf('imes')) content = content.replace(/imes/g, 'i');
-    if (conteudo.indexOf('ober')) content = content.replace(/ober/g, 'o');
-    if (conteudo.indexOf('ufat')) content = content.replace(/ufat/g, 'u');
+    content = content.replace(/ai/g, 'a');
+    content = content.replace(/enter/g, 'e');
+    content = content.replace(/imes/g, 'i');
+    content = content.replace(/ober/g, 'o');
+    content = content.replace(/ufat/g, 'u');
     return content;
 }
