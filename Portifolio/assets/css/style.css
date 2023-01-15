@@ -26,8 +26,6 @@ header {
     width: 100%;
     max-width: 1600px;
     margin: 0 auto;
-    padding-left: 128px;
-    padding-right: 128px;
 }
 
 header .container{
@@ -80,7 +78,7 @@ header nav a {
    display: block;
     width: 100%;
     height: 5px;
-    background-color: #000;
+    background-color: white;
     margin: 6px 0;
     transition: 0.4s;
 }
@@ -132,7 +130,7 @@ header nav a {
     background-color: #24104f;
 }
 
-@media (min-width: 768px) {
+@media screen and (min-width: 768px) {
     .mobile-nav {
         display: none;
     }
@@ -150,6 +148,10 @@ section.banner {
     justify-content: center;
     height: 700px;
     background: #eecc8d;
+}
+
+.banner .container {
+margin: 0 128px;
 }
 
 /* Texto Dinamico banner */
@@ -213,7 +215,19 @@ section.banner {
 
 main img {
     position: absolute;
+    grid-column-start: 2;
     height: 90%;
+    object-fit: fill;
     right: 200px;
     bottom: 0;
+}
+
+@media screen and (max-width: 767px) {
+    section.banner {
+        flex-direction: column;
+    }
+
+    main img {
+        display: none;
+    }
 }
