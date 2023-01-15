@@ -1,7 +1,11 @@
 //  config inicial
+require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 const app = express();
+
+const DB_USER = process.env.DB_USER;
+const DB_PASSWAORD = process.env.DB_PASSWAORD;
 
 //  forma de ler JSON / middlewares
 app.use(
@@ -27,7 +31,7 @@ app.get('/', (req, res) => {
 
 //  entregar uma porta
 mongoose
-  .connect('mongodb+srv://naokinakamura:ur2reVetd6dYzaLM@apicluster.kx6zbwj.mongodb.net/bancodaapi?retryWrites=true&w=majority')
+  .connect(`mongodb+srv://${DB_USER}:${DB_PASSWAORD}@apicluster.kx6zbwj.mongodb.net/bancodaapi?retryWrites=true&w=majority`)
   .then(() => {
     console.log("conectamos ao MongoDB!");
     app.listen(3000);
