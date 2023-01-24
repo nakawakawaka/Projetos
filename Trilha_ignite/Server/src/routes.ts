@@ -54,23 +54,26 @@ export async function appRoutes(app: FastifyInstance) {
       }
     })
 
-    const day = await prisma.day.findFirst({
+    // Aqui acredito que deveria validar a data
+    const day = await prisma.day.findUnique({
       where: {
-        date: parsedDate.toDate(),
+        date: parsedDate.toDate(), // quando dou console.log fora da constante a data aparece
       },
       include: {
         dayHabits: true,
       }
     })
 
+    // outra coisa curiosa é que se eu busco uma data com horario antes das 15h por exemplo 2023/01/02T14:00:00.000z no insomnia o parsedDate retorna um dia anterior as 15h 2023/01/01T15:00:00.000z
+
+    // Como a const day retorna null entao aqui acaba retornando apenas o array vazio
     const completedHabits = day?.dayHabits.map(dayHabit => {
       return dayHabit.habit_id;
-    })
+    }) ?? []
 
     return {
       possibleHabits,
       completedHabits,
-      day
     }
   });
 

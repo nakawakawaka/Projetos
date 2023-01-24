@@ -1,0 +1,3 @@
+Pasta Server
+Na pasta src dentro do arquivo routes.ts
+Na rota get /day
