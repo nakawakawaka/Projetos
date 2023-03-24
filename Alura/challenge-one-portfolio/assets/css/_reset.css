@@ -1,0 +1,16 @@
+* {
+  box-sizing: border-box;
+}
+
+ol, ul,li {
+  list-style: none;
+}
+a{
+  text-decoration: none;
+  color: var(--cor-de-link);
+}
+
+input {
+  border: none;
+  border-radius: 5px;
+}

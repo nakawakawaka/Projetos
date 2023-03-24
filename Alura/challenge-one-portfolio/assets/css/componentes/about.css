@@ -1,0 +1,16 @@
+section.about{
+  background-color: var(--light-blue-bg);
+  padding: 16px 16px;
+}
+
+@media screen and (min-width: 768px) {
+  section.about {
+    padding: var(--preenchimento-pc);
+  }
+}
+
+@media (min-width: 425px) {
+  .about {
+    padding: 32px;
+  }
+}

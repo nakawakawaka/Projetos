@@ -1,0 +1,38 @@
+section.formcontato {
+  background-color: var(--light-blue-bg);
+  padding: 32px;
+}
+
+.formcontato--esquerda {
+  display: none;
+}
+
+.formcontato__subtext {
+  font-weight: lighter;
+  font-size: 16px;
+  line-height: 19px;
+  margin: 0;
+}
+
+.formcontato__input::placeholder {
+  color: var(--placeholder);
+}
+
+.formcontato__textarea {
+  border: none;
+  border-radius: 6px;
+  width: 100%;
+  outline: none;
+  resize: none;
+  margin-bottom: 32px;
+}
+
+@media screen and (min-width: 768px) {
+  section.formcontato {
+    padding: var(--preenchimento-pc);
+  }
+}
+
+@media (min-width: 425px) {
+
+}
