@@ -1,0 +1,35 @@
+.login {
+  background-color: var(--cor-cinza-fundo);
+  text-align: center;
+}
+
+.login__box {
+  width: 18em;
+  height: 12em;
+  margin: 2em auto;
+  padding: 2em;
+}
+
+.login h2 {
+  font-weight: var(--font-weight-700);
+  margin-bottom: 1em;
+}
+
+@media screen and (min-width: 768px) {
+  .login__box {
+    width: 26.5em;
+    height: 18em;
+  }
+
+  .login h2 {
+    margin-bottom: 1.5em;
+  }
+
+  .login button {
+    width: 100%;
+  }
+
+  .login .input-container {
+    margin-bottom: 1.5em;
+  }
+}
