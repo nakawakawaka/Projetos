@@ -19,3 +19,24 @@
   font-size: 1.4em;
   font-weight: var(--font-weight-700);
 }
+
+@media (min-width: 425px) {
+  .banner {
+    height: 22em;
+  }
+  
+  .banner__box {
+    bottom: var(--padding-tablet);
+    left: var(--padding-tablet);
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .banner {
+    height: 30em;
+  }
+  
+  .banner__box {
+    left: 9.5em;
+  }
+}

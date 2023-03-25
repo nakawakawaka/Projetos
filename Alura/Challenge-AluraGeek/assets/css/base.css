@@ -5,10 +5,15 @@ section {
   padding: var(--padding-mobile);
 }
 
-@media screen and (min-width: 768px) {
-
-}
 
 @media (min-width: 425px) {
+  section {
+    padding: var(--padding-tablet);
+  }
+}
 
+@media screen and (min-width: 768px) {
+  section {
+    padding: var(--padding-web);
+  }
 }

@@ -27,8 +27,8 @@
 }
 
 .produtos__img {
-  width: 156px;
-  height: 174px;
+  width: 9.6em;
+  height: 11em;
   overflow: hidden;
   margin-bottom: .5em;
 }
@@ -39,4 +39,16 @@
 
 .produto__preco {
   font-weight: var(--font-weight-700);
+}
+
+@media (min-width: 425px) {
+  .produtos__img {
+    width: 10.25em;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .produtos__img {
+    width: 11em;
+  }
 }

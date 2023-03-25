@@ -16,3 +16,26 @@
   font-weight: var(--font-weight-700);
   margin-bottom: .5em;
 }
+
+@media (min-width: 425px) {
+  .contato {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .contato__form {
+    flex-grow: .5;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .contato {
+    display: flex;
+  }
+
+  .contato__container {
+    display: flex;
+    justify-content: space-between;
+    width: 50%;
+  }
+}
