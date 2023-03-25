@@ -1,0 +1,21 @@
+:root {
+  --fonte-peso-input: 300;
+  --fonte-tamanho-input-label: 20px;
+
+  --cor-azul: #2A7AE4;
+  --cor-azul-claro: #5595E9;
+  --cor-azul-fundo-branco: #D4E4FA;
+  --cor-azul-fundo: #EAF2FD;
+  --cor-branco: #fff;
+  --cor-aviso: #df2525;
+  --cor-sucesso: #047900;
+  --cor-secundaria: #d6eaff;
+  --placeholder: #A2A2A2;
+
+  --padding-mobile: 1em;
+  --padding-tablet: 2em;
+  --padding-web: 9.5em;
+
+  --font-weight-700: 700;
+  --font-weight-600: 600;
+}

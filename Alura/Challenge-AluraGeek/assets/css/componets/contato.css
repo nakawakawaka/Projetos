@@ -1,0 +1,18 @@
+.contato {
+  background-color: var(--cor-azul-fundo);
+}
+
+.contato__logo {
+  text-align: center;
+}
+
+.contato__links {
+  text-align: center;
+  line-height: 2em;
+  padding: 2em 0;
+}
+
+.contato__titulo {
+  font-weight: var(--font-weight-700);
+  margin-bottom: .5em;
+}

@@ -1,0 +1,59 @@
+.menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.menu__busca {
+  display: flex;
+  gap: 2em;
+  align-items: center;
+}
+
+.menu .input-container {
+  margin: 0;
+}
+
+.menu .input-label {
+  display: none;
+}
+
+.busca {
+  display: none;
+}
+
+i.fa-magnifying-glass {
+  cursor: pointer;
+}
+
+
+@media screen and (min-width: 768px) {
+
+}
+
+@media (min-width: 425px) {
+  .busca {
+    display: block;
+    border-radius: 2em;
+    background-color: #F5F5F5;
+    height: 40px;
+    width: 272px;
+  }
+
+  .menu .input-label {
+    display: block;
+    font-size: 14px;
+    top: 0.8rem;
+    left: 0.9rem;
+  }
+
+  .menu .input-label img {
+    position: absolute;
+    right: -5rem;
+    width: 1rem;
+  }
+
+  i.fa-magnifying-glass {
+    display: none;
+  }
+}

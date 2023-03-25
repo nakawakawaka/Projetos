@@ -1,0 +1,25 @@
+button {
+	background-color: white;
+  height: 3em;
+}
+
+.botao__branco {
+  color: var(--cor-azul);
+  font-weight: var(--font-weight-600);
+  border: solid 1px var(--cor-azul);
+}
+
+.botao__branco:hover {  
+  background-color: var(--cor-azul-fundo-branco);
+}
+
+.botao__azul {
+  color: var(--cor-branco);
+  font-weight: var(--font-weight-600);
+  background-color: var(--cor-azul);
+  border: none;
+}
+
+.botao__azul:hover {
+  background-color: var(--cor-azul-claro);
+}

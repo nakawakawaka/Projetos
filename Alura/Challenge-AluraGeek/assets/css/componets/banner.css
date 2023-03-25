@@ -1,0 +1,21 @@
+.banner {
+  background-image: linear-gradient(to bottom, transparent 0%, black 120%) ,url("../../img/banner-bg.jpg");
+  background-color: black;
+  background-position: center;
+  background-size: cover;
+  height: 12em;
+  color: var(--cor-branco);
+  position: relative;
+  line-height: 2.5em;
+}
+
+.banner__box {
+  position: absolute;
+  bottom: var(--padding-mobile);
+  left: var(--padding-mobile);
+}
+
+.banner_titulo {
+  font-size: 1.4em;
+  font-weight: var(--font-weight-700);
+}

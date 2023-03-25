@@ -24,6 +24,7 @@ footer, header, hgroup, menu, nav, section {
 	display: block;
 }
 body {
+	font-family: 'Raleway';
 	line-height: 1;
 }
 ol, ul {
@@ -40,4 +41,17 @@ q:before, q:after {
 table {
 	border-collapse: collapse;
 	border-spacing: 0;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:visited {
+	color: inherit;
+}
+
+input, textarea {
+	border: none;
+	box-shadow: 1px 1px rgba(0, 0, 0, .2);
 }
