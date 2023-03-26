@@ -11,7 +11,7 @@
   <link rel="stylesheet" href="./assets/css/componets/inputs.css">
 
   <link rel="stylesheet" href="./assets/css/componets/menu.css">
-  <link rel="stylesheet" href="./assets/css/componets/banner.css">
+  <link rel="stylesheet" href="./assets/css/componets/todos-produtos.css">
   <link rel="stylesheet" href="./assets/css/componets/produtos.css">
   <link rel="stylesheet" href="./assets/css/componets/contato.css">
   <link rel="stylesheet" href="./assets/css/componets/footer.css">
@@ -28,66 +28,72 @@
 <body>
   <section class="menu">
     <div class="menu__busca">
-      <a href="./index.html"><img src="./assets/img/Logo.png" alt="logo AluraGeek"></a>
+      <img href="#" src="./assets/img/Logo.png" alt="logo AluraGeek">
       <div class="input-container">
         <input name="busca" id="busca" class="input busca" type="text" placeholder="busca" data-tipo="busca" required>
-        <label class="input-label" for="busca">O que deseja encontrar? <img src="./assets/img/lupa.png" alt="lupa de busca"></label>
+        <label class="input-label" for="busca">O que deseja encontrar? <img src="./assets/img/lupa.png"
+            alt="lupa de busca"></label>
         <span class="input-mensagem-erro">Este campo não está válido</span>
       </div>
     </div>
-    <a href="./login.html"><button class="botao__branco">login</button></a>
-    <a href=""><i class="fa-solid fa-magnifying-glass"></i></a>
+    <i class="fa-solid fa-magnifying-glass"></i>
   </section>
 
-  <section class="banner">
-    <div class="banner__box">
-      <h1 class="banner_titulo">Dezembro Promocional</h1>
-      <h3>Produtos selecionados com 33% de desconto</h3>
-      <button class="botao__azul">Ver Consoles</button>
+  <section class="todos-produtos">
+    <div class="todos-produtos__header">
+      <h2 class="todos-produtos__titulo">Todos os produtos</h2>
+      <button class="botao__azul">Adicionar produto</button>
     </div>
-  </section>
 
-  <section class="produtos">
-    <div class="produto__classe">
-      <div class="produto__header">
-        <h2 class="produto__classe-titulo">Star Wars</h2>
-        <a href="#">Ver tudo <i class="fa-solid fa-arrow-right"></i></a>
+    <div class="produtos__container">
+      <div class="produtos__box">
+        <div class="produtos__img">
+          <img src="./assets/img/produto1.jpg" alt="">
+          <div class="produto__buttom-comtainer">
+            <a href="#" class="delete"><i class="fa-solid fa-trash" style="color: #ffffff;"></i></a>
+            <a href="#" class="edit"><i class="fa-solid fa-pen" style="color: #ffffff;"></i></a>
+          </div>
+        </div>
+        <h3 class="produto__titulo">Produto XYZ</h3>
+        <p class="produto__preco">R$ 60,00</p>
+        <p class="id">#1111111</p>
       </div>
-      <div class="produtos__container">
-        <div class="produtos__box">
-          <div class="produtos__img">
-            <img src="./assets/img/produto1.jpg" alt="">
+      <div class="produtos__box">
+        <div class="produtos__img">
+          <img src="./assets/img/produto1.jpg" alt="">
+          <div class="produto__buttom-comtainer">
+            <a href="#" class="delete"><i class="fa-solid fa-trash" style="color: #ffffff;"></i></a>
+            <a href="#" class="edit"><i class="fa-solid fa-pen" style="color: #ffffff;"></i></a>
           </div>
-          <h3 class="produto__titulo">Produto XYZ</h3>
-          <p class="produto__preco">R$ 60,00</p>
-          <a href="#">Ver produto</a>
         </div>
-        <div class="produtos__box">
-          <div class="produtos__img">
-            <img src="./assets/img/produto1.jpg" alt="">
-          </div>
-          <h3 class="produto__titulo">Produto XYZ</h3>
-          <p class="produto__preco">R$ 60,00</p>
-          <a href="#">Ver produto</a>
-        </div>
-        <div class="produtos__box">
-          <div class="produtos__img">
-            <img src="./assets/img/produto1.jpg" alt="">
-          </div>
-          <h3 class="produto__titulo">Produto XYZ</h3>
-          <p class="produto__preco">R$ 60,00</p>
-          <a href="#">Ver produto</a>
-        </div>
-        <div class="produtos__box">
-          <div class="produtos__img">
-            <img src="./assets/img/produto1.jpg" alt="">
-          </div>
-          <h3 class="produto__titulo">Produto XYZ</h3>
-          <p class="produto__preco">R$ 60,00</p>
-          <a href="#">Ver produto</a>
-        </div>
+        <h3 class="produto__titulo">Produto XYZ</h3>
+        <p class="produto__preco">R$ 60,00</p>
+        <p class="id">#1111111</p>
       </div>
-    </div>
+      <div class="produtos__box">
+        <div class="produtos__img">
+          <img src="./assets/img/produto1.jpg" alt="">
+          <div class="produto__buttom-comtainer">
+            <a href="#" class="delete"><i class="fa-solid fa-trash" style="color: #ffffff;"></i></a>
+            <a href="#" class="edit"><i class="fa-solid fa-pen" style="color: #ffffff;"></i></a>
+          </div>
+        </div>
+        <h3 class="produto__titulo">Produto XYZ</h3>
+        <p class="produto__preco">R$ 60,00</p>
+        <p class="id">#1111111</p>
+      </div>
+      <div class="produtos__box">
+        <div class="produtos__img">
+          <img src="./assets/img/produto1.jpg" alt="">
+          <div class="produto__buttom-comtainer">
+            <a href="#" class="delete"><i class="fa-solid fa-trash" style="color: #ffffff;"></i></a>
+            <a href="#" class="edit"><i class="fa-solid fa-pen" style="color: #ffffff;"></i></a>
+          </div>
+        </div>
+        <h3 class="produto__titulo">Produto XYZ</h3>
+        <p class="produto__preco">R$ 60,00</p>
+        <p class="id">#1111111</p>
+      </div>
   </section>
 
   <section class="contato">
@@ -112,7 +118,8 @@
         <span class="input-mensagem-erro">Este campo não está válido</span>
       </div>
       <div class="textarea-container">
-        <textarea name="textarea" id="textarea" class="textarea" type="text" placeholder="textarea" data-tipo="textarea" required></textarea>
+        <textarea name="textarea" id="textarea" class="textarea" type="text" placeholder="textarea" data-tipo="textarea"
+          required></textarea>
         <label class="textarea-label" for="textarea">Escreva sua mensagem</label>
         <span class="input-mensagem-erro">Este campo não está válido</span>
       </div>

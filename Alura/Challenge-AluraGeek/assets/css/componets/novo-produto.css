@@ -1,0 +1,26 @@
+.novo__produto {
+  background-color: var(--cor-cinza-fundo);
+}
+
+.novo__produto h2 {
+  font-size: 1.5em;
+  font-weight: var(--font-weight-700);
+  margin-bottom: .5em;
+}
+
+.novo__produto button {
+  width: 100%;
+}
+
+@media screen and (min-width: 768px) {
+  .novo__produto {
+    display: flex;
+    justify-content: center;
+    padding: 4em;
+  }
+
+  .novo__produto-container {
+    width: 35em;
+  }
+
+}

@@ -11,8 +11,7 @@
   <link rel="stylesheet" href="./assets/css/componets/inputs.css">
 
   <link rel="stylesheet" href="./assets/css/componets/menu.css">
-  <link rel="stylesheet" href="./assets/css/componets/banner.css">
-  <link rel="stylesheet" href="./assets/css/componets/produtos.css">
+  <link rel="stylesheet" href="./assets/css/componets/novo-produto.css">
   <link rel="stylesheet" href="./assets/css/componets/contato.css">
   <link rel="stylesheet" href="./assets/css/componets/footer.css">
 
@@ -28,65 +27,50 @@
 <body>
   <section class="menu">
     <div class="menu__busca">
-      <a href="./index.html"><img src="./assets/img/Logo.png" alt="logo AluraGeek"></a>
+      <img href="#" src="./assets/img/Logo.png" alt="logo AluraGeek">
       <div class="input-container">
         <input name="busca" id="busca" class="input busca" type="text" placeholder="busca" data-tipo="busca" required>
-        <label class="input-label" for="busca">O que deseja encontrar? <img src="./assets/img/lupa.png" alt="lupa de busca"></label>
+        <label class="input-label" for="busca">O que deseja encontrar? <img src="./assets/img/lupa.png"
+            alt="lupa de busca"></label>
         <span class="input-mensagem-erro">Este campo não está válido</span>
       </div>
     </div>
-    <a href="./login.html"><button class="botao__branco">login</button></a>
-    <a href=""><i class="fa-solid fa-magnifying-glass"></i></a>
+    <i class="fa-solid fa-magnifying-glass"></i>
   </section>
 
-  <section class="banner">
-    <div class="banner__box">
-      <h1 class="banner_titulo">Dezembro Promocional</h1>
-      <h3>Produtos selecionados com 33% de desconto</h3>
-      <button class="botao__azul">Ver Consoles</button>
-    </div>
-  </section>
-
-  <section class="produtos">
-    <div class="produto__classe">
-      <div class="produto__header">
-        <h2 class="produto__classe-titulo">Star Wars</h2>
-        <a href="#">Ver tudo <i class="fa-solid fa-arrow-right"></i></a>
-      </div>
-      <div class="produtos__container">
-        <div class="produtos__box">
-          <div class="produtos__img">
-            <img src="./assets/img/produto1.jpg" alt="">
-          </div>
-          <h3 class="produto__titulo">Produto XYZ</h3>
-          <p class="produto__preco">R$ 60,00</p>
-          <a href="#">Ver produto</a>
+  <section class="novo__produto">
+    <div class="novo__produto-container">
+      <h2>Adicionar novo produto</h2>
+      <form action="" class="contato__form">
+        <div class="input-container">
+          <input name="img" id="img" class="input" type="text" placeholder="Img" data-tipo="img" required>
+          <label class="input-label" for="img">URL da imagem</label>
+          <span class="input-mensagem-erro">Este campo não está válido</span>
         </div>
-        <div class="produtos__box">
-          <div class="produtos__img">
-            <img src="./assets/img/produto1.jpg" alt="">
-          </div>
-          <h3 class="produto__titulo">Produto XYZ</h3>
-          <p class="produto__preco">R$ 60,00</p>
-          <a href="#">Ver produto</a>
+        <div class="input-container">
+          <input name="categoria" id="categoria" class="input" type="text" placeholder="Categoria" data-tipo="categoria"
+            required>
+          <label class="input-label" for="categoria">Categoria</label>
+          <span class="input-mensagem-erro">Este campo não está válido</span>
         </div>
-        <div class="produtos__box">
-          <div class="produtos__img">
-            <img src="./assets/img/produto1.jpg" alt="">
-          </div>
-          <h3 class="produto__titulo">Produto XYZ</h3>
-          <p class="produto__preco">R$ 60,00</p>
-          <a href="#">Ver produto</a>
+        <div class="input-container">
+          <input name="nome" id="nome" class="input" type="text" placeholder="Nome do produto" data-tipo="nome"
+            required>
+          <label class="input-label" for="nome">Nome do produto</label>
+          <span class="input-mensagem-erro">Este campo não está válido</span>
         </div>
-        <div class="produtos__box">
-          <div class="produtos__img">
-            <img src="./assets/img/produto1.jpg" alt="">
-          </div>
-          <h3 class="produto__titulo">Produto XYZ</h3>
-          <p class="produto__preco">R$ 60,00</p>
-          <a href="#">Ver produto</a>
+        <div class="input-container cadastro__preco-container">
+          <input name="preco" id="preco" class="input" type="text" placeholder="Preço" data-tipo="preco" required>
+          <label class="input-label" for="preco">Preço</label>
+          <span class="input-mensagem-erro">Este campo não está válido</span>
         </div>
-      </div>
+        <div class="input-container cadastro__descricao-container">
+          <input class="input" name="descricao" id="descricao" placeholder="Descrição">
+          <label class="input-label" for="descricao">Descrição</label>
+          <span class="input-mensagem-erro">Este campo não está válido</span>
+        </div>
+        <button type="submit" class="botao__azul">Adicionar produto</button>
+      </form>
     </div>
   </section>
 
@@ -112,7 +96,8 @@
         <span class="input-mensagem-erro">Este campo não está válido</span>
       </div>
       <div class="textarea-container">
-        <textarea name="textarea" id="textarea" class="textarea" type="text" placeholder="textarea" data-tipo="textarea" required></textarea>
+        <textarea name="textarea" id="textarea" class="textarea" type="text" placeholder="textarea" data-tipo="textarea"
+          required></textarea>
         <label class="textarea-label" for="textarea">Escreva sua mensagem</label>
         <span class="input-mensagem-erro">Este campo não está válido</span>
       </div>
