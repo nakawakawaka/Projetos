@@ -113,7 +113,7 @@
 .textarea:not(:placeholder-shown) + .textarea-label, .textarea:focus + .textarea-label {
     font-size: 0.875rem;
     color: black;
-    top: -.25rem;
+    top: -0.25rem;
     transition: all 0.25s;
 }
 
