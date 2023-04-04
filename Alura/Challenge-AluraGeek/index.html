@@ -31,7 +31,8 @@
       <a href="./index.html"><img src="./assets/img/Logo.png" alt="logo AluraGeek"></a>
       <div class="input-container">
         <input name="busca" id="busca" class="input busca" type="text" placeholder="busca" data-tipo="busca">
-        <label class="input-label" for="busca">O que deseja encontrar? <img src="./assets/img/lupa.png" alt="lupa de busca"></label>
+        <label class="input-label" for="busca">O que deseja encontrar? <img src="./assets/img/lupa.png"
+            alt="lupa de busca"></label>
         <span class="input-mensagem-erro">Este campo não está válido</span>
       </div>
     </div>
@@ -48,45 +49,12 @@
   </section>
 
   <section class="produtos">
-    <div class="produto__classe">
-      <div class="produto__header">
-        <h2 class="produto__classe-titulo">Star Wars</h2>
-        <a href="#">Ver tudo <i class="fa-solid fa-arrow-right"></i></a>
-      </div>
-      <div class="produtos__container">
-        <div class="produtos__box">
-          <div class="produtos__img">
-            <img src="./assets/img/produto1.jpg" alt="">
-          </div>
-          <h3 class="produto__titulo">Produto XYZ</h3>
-          <p class="produto__preco">R$ 60,00</p>
-          <a href="#">Ver produto</a>
-        </div>
-        <div class="produtos__box">
-          <div class="produtos__img">
-            <img src="./assets/img/produto1.jpg" alt="">
-          </div>
-          <h3 class="produto__titulo">Produto XYZ</h3>
-          <p class="produto__preco">R$ 60,00</p>
-          <a href="#">Ver produto</a>
-        </div>
-        <div class="produtos__box">
-          <div class="produtos__img">
-            <img src="./assets/img/produto1.jpg" alt="">
-          </div>
-          <h3 class="produto__titulo">Produto XYZ</h3>
-          <p class="produto__preco">R$ 60,00</p>
-          <a href="#">Ver produto</a>
-        </div>
-        <div class="produtos__box">
-          <div class="produtos__img">
-            <img src="./assets/img/produto1.jpg" alt="">
-          </div>
-          <h3 class="produto__titulo">Produto XYZ</h3>
-          <p class="produto__preco">R$ 60,00</p>
-          <a href="#">Ver produto</a>
-        </div>
-      </div>
+    <div class="produto__header">
+      <h2 class="produto__classe-titulo">Star Wars</h2>
+      <a href="./todos_produtos.html">Ver tudo <i class="fa-solid fa-arrow-right"></i></a>
+    </div>
+    <div class="produtos__container" data-product>
+      <!-- Produtos cadastrados no json db -->
     </div>
   </section>
 
@@ -112,7 +80,8 @@
         <span class="input-mensagem-erro">Este campo não está válido</span>
       </div>
       <div class="textarea-container">
-        <textarea name="textarea" id="textarea" class="textarea" type="text" placeholder="textarea" data-tipo="textarea" required></textarea>
+        <textarea name="textarea" id="textarea" class="textarea" type="text" placeholder="textarea" data-tipo="textarea"
+          required></textarea>
         <label class="textarea-label" for="textarea">Escreva sua mensagem</label>
         <span class="input-mensagem-erro">Este campo não está válido</span>
       </div>
@@ -126,6 +95,7 @@
   </footer>
 
   <script type="module" src="./js/app.js"></script>
+  <script type="module" src="./js/controller/produtoBox.js"></script>
   <script src="https://kit.fontawesome.com/ca6b549bfd.js" crossorigin="anonymous"></script>
 </body>
 

@@ -11,8 +11,7 @@
   <link rel="stylesheet" href="./assets/css/componets/inputs.css">
 
   <link rel="stylesheet" href="./assets/css/componets/menu.css">
-  <link rel="stylesheet" href="./assets/css/componets/todos-produtos.css">
-  <link rel="stylesheet" href="./assets/css/componets/produtos.css">
+  <link rel="stylesheet" href="./assets/css/componets/novo-produto.css">
   <link rel="stylesheet" href="./assets/css/componets/contato.css">
   <link rel="stylesheet" href="./assets/css/componets/footer.css">
 
@@ -39,14 +38,39 @@
     <i class="fa-solid fa-magnifying-glass"></i>
   </section>
 
-  <section class="todos-produtos">
-    <div class="todos-produtos__header">
-      <h2 class="todos-produtos__titulo">Todos os produtos</h2>
-      <a href="./novo_produto.html"><button class="botao__azul">Adicionar produto</button></a>
-    </div>
-
-    <div class="produtos__container" data-product-adm>
-      <!-- Produtos cadastrados no json db -->
+  <section class="novo__produto">
+    <div class="novo__produto-container">
+      <h2>Editar produto</h2>
+      <form class="contato__form" data-form>
+        <div class="input-container">
+          <input name="img" id="img" class="input" type="text" placeholder="Img" data-tipo="img" required>
+          <label class="input-label" for="img">URL da imagem</label>
+          <span class="input-mensagem-erro">Este campo não está válido</span>
+        </div>
+        <div class="input-container">
+          <input name="categoria" id="categoria" class="input" type="text" placeholder="Categoria" data-tipo="categoria"
+            required>
+          <label class="input-label" for="categoria">Categoria</label>
+          <span class="input-mensagem-erro">Este campo não está válido</span>
+        </div>
+        <div class="input-container">
+          <input name="nome" id="nome" class="input" type="text" placeholder="Nome do produto" data-tipo="nome"
+            required>
+          <label class="input-label" for="nome">Nome do produto</label>
+          <span class="input-mensagem-erro">Este campo não está válido</span>
+        </div>
+        <div class="input-container cadastro__preco-container">
+          <input name="preco" id="preco" class="input" type="text" placeholder="Preço" data-tipo="preco" required>
+          <label class="input-label" for="preco">Preço</label>
+          <span class="input-mensagem-erro">Este campo não está válido</span>
+        </div>
+        <div class="input-container cadastro__descricao-container">
+          <input class="input" name="descricao" id="descricao" placeholder="Descrição" data-tipo="descricao">
+          <label class="input-label" for="descricao">Descrição</label>
+          <span class="input-mensagem-erro">Este campo não está válido</span>
+        </div>
+        <button type="submit" class="botao__azul">Adicionar produto</button>
+      </form>
     </div>
   </section>
 
@@ -64,7 +88,7 @@
         <li><a href="">Anuncie aqui</a></li>
       </ul>
     </div>
-    <form action="" class="contato__form">
+    <form class="contato__form">
       <h4 class="contato__titulo">Fale conosco</h4>
       <div class="input-container">
         <input name="nome" id="nome" class="input" type="text" placeholder="Nome" data-tipo="nome" required>
@@ -87,8 +111,10 @@
   </footer>
 
   <script type="module" src="./js/app.js"></script>
-  <script type="module" src="./js/controller/produtoBoxAdm.js"></script>
+  <script type="module" src="./js/controller/editaProduto.js"></script>
+
   <script src="https://kit.fontawesome.com/ca6b549bfd.js" crossorigin="anonymous"></script>
+  <script src="https://github.com/codermarcos/simple-mask-money/releases/download/v3.0.0/simple-mask-money.js"></script>
 </body>
 
 </html>
