@@ -29,19 +29,27 @@ section.menu{
   display: none;
 }
 
-.email {
-  word-break: break-word;
-}
-
 .menu__list__item__contato {
   display: block;
   word-break: break-word;
 }
 
+
+
+/*Mobile*/
+@media (min-width: 425px) {
+  .menu {
+    padding: 0 32px;
+  }
+  .menu__list__item__contato {
+    font-weight: bold;
+  }
+}
+
 /*Tablet*/
 @media screen and (min-width: 768px) {
   section.menu {
-    padding: 0 128px;
+    padding: 0 10%;
   }
 
   .menu__list {
@@ -57,15 +65,5 @@ section.menu{
   .menu__list__item__contato {
     display: none;
     font-weight: 500;
-  }
-}
-
-/*Mobile*/
-@media (min-width: 425px) {
-  .menu {
-    padding: 0 32px;
-  }
-  .menu__list__item__contato {
-    font-weight: bold;
   }
 }

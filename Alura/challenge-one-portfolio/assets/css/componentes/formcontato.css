@@ -27,12 +27,13 @@ section.formcontato {
   margin-bottom: 32px;
 }
 
+
+@media (min-width: 425px) {
+
+}
+
 @media screen and (min-width: 768px) {
   section.formcontato {
     padding: var(--preenchimento-pc);
   }
-}
-
-@media (min-width: 425px) {
-
 }

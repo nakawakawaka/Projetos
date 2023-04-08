@@ -6,6 +6,11 @@
     width: 96px;
     height: 40px;
 }
+
+.botao:hover {
+    background-color: var(--cor-botao-hover);
+}
+
 .experiencia__botao--repo {
     background-color: #fff;
     color: var(--cor-botao);
@@ -15,6 +20,10 @@
     height: 40px;
 }
 
+.experiencia__botao--repo:hover {
+    background-color: var(--cor-botao-claro-hover);
+}
+
 .formcontato__botao {
     background-color: var(--cor-botao);
     color: #fff;
@@ -22,4 +31,8 @@
     border-radius: 6px;
     width: 151px;
     height: 40px;
+}
+
+.formcontato__botao:hover {
+    background-color: var(--cor-botao-hover);
 }
