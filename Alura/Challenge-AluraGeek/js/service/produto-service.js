@@ -1,11 +1,11 @@
 const listaProduto = () => {
-  return fetch('http://localhost:3000/profile')
+  return fetch('https://json-server-nine-alpha.vercel.app/profile')
     .then((resposta) => resposta.json())
     .catch((error) => console.log(error));
 }
 
 const criaProduto = (url, categoria, nomeProduto, preco, descricao) => {
-  return fetch(`http://localhost:3000/profile`, {
+  return fetch(`https://json-server-nine-alpha.vercel.app/profile`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
@@ -26,7 +26,7 @@ const criaProduto = (url, categoria, nomeProduto, preco, descricao) => {
 }
 
 const removeProduto = id => {
-  return fetch(`http://localhost:3000/profile/${id}`, {
+  return fetch(`https://json-server-nine-alpha.vercel.app/profile/${id}`, {
     method: 'DELETE'
   }).then(resposta => {
     if(!resposta.ok) {
@@ -36,7 +36,7 @@ const removeProduto = id => {
 }
 
 const detalhaProduto = id => {
-  return fetch(`http://localhost:3000/profile/${id}`)
+  return fetch(`https://json-server-nine-alpha.vercel.app/profile/${id}`)
   .then(resposta => {
     if (resposta.ok) {
       return resposta.json();
@@ -46,7 +46,7 @@ const detalhaProduto = id => {
 }
 
 const atualizaProduto = (id, url, categoria, nomeProduto, preco, descricao) => {
-  return fetch(`http://localhost:3000/profile/${id}`, {
+  return fetch(`https://json-server-nine-alpha.vercel.app/profile/${id}`, {
     method: 'PUT',
     headers: {
       'Content-type': 'application/json'
