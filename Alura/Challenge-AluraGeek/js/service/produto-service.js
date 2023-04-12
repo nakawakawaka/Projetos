@@ -1,11 +1,11 @@
-const listaProduto = () => {
-  return fetch('https://json-server-nine-alpha.vercel.app/profile')
+const listaProduto = async () => {
+  return await fetch('https://json-server-nine-alpha.vercel.app/profile')
     .then((resposta) => resposta.json())
     .catch((error) => console.log(error));
 }
 
-const criaProduto = (url, categoria, nomeProduto, preco, descricao) => {
-  return fetch(`https://json-server-nine-alpha.vercel.app/profile`, {
+const criaProduto = async (url, categoria, nomeProduto, preco, descricao) => {
+  return await fetch(`https://json-server-nine-alpha.vercel.app/profile`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
@@ -25,8 +25,8 @@ const criaProduto = (url, categoria, nomeProduto, preco, descricao) => {
   });
 }
 
-const removeProduto = id => {
-  return fetch(`https://json-server-nine-alpha.vercel.app/profile/${id}`, {
+const removeProduto = async id => {
+  return await fetch(`https://json-server-nine-alpha.vercel.app/profile/${id}`, {
     method: 'DELETE'
   }).then(resposta => {
     if(!resposta.ok) {
@@ -35,8 +35,8 @@ const removeProduto = id => {
   })
 }
 
-const detalhaProduto = id => {
-  return fetch(`https://json-server-nine-alpha.vercel.app/profile/${id}`)
+const detalhaProduto = async id => {
+  return await fetch(`https://json-server-nine-alpha.vercel.app/profile/${id}`)
   .then(resposta => {
     if (resposta.ok) {
       return resposta.json();
@@ -45,8 +45,8 @@ const detalhaProduto = id => {
   });
 }
 
-const atualizaProduto = (id, url, categoria, nomeProduto, preco, descricao) => {
-  return fetch(`https://json-server-nine-alpha.vercel.app/profile/${id}`, {
+const atualizaProduto = async (id, url, categoria, nomeProduto, preco, descricao) => {
+  return await fetch(`https://json-server-nine-alpha.vercel.app/profile/${id}`, {
     method: 'PUT',
     headers: {
       'Content-type': 'application/json'

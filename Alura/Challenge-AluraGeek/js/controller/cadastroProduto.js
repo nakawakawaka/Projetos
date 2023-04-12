@@ -1,5 +1,6 @@
 import { produtoService } from "../service/produto-service.js";
 
+
 const formulario = document.querySelector('[data-form]');
 
 formulario.addEventListener('submit', async evento => {
@@ -12,7 +13,10 @@ formulario.addEventListener('submit', async evento => {
 
   await produtoService.criaProduto(url, categoria, nomeProduto, preco, descricao)
     .then(resposta => {
-      window.location.href = "../index.html"
+      window.location.href = `../todos_produtos.html`
       console.log(resposta)
-    }).catch(error => console.log(error));
+    }).catch(error => {
+      console.log(error)
+      window.location.href = `../todos_produtos.html`
+      })
 })

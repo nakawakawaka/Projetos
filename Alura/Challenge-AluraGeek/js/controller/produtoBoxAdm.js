@@ -26,16 +26,14 @@ const produtosContainerAdm = document.querySelector('[data-product-adm]');
 
 produtosContainerAdm.addEventListener('click', async evento => {
   let botaoDeletar = evento.target.className === "fa-solid fa-trash delete";
-  console.log(evento.target)
   if (botaoDeletar) {
     try {
       const linhaProduto = evento.target.closest('[data-id]');
       let id = linhaProduto.dataset.id;
-      await produtoService.removeProduto(id);
+      produtoService.removeProduto(id);
       linhaProduto.remove();
     } catch (error) {
       console.log(error);
-      window.location.href = '../telas/erro.html';
     }
   }
 });

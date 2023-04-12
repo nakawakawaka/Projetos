@@ -28,7 +28,7 @@ import { produtoService } from "../service/produto-service.js";
     evento.preventDefault();
     
     try {      
-      await produtoService.atualizaProduto(id, inputUrl.value, inputCategoria.value, inputNomeProduto.value, inputPreco.value, inputDescricao.value);
+      produtoService.atualizaProduto(id, inputUrl.value, inputCategoria.value, inputNomeProduto.value, inputPreco.value, inputDescricao.value);
       
       window.location.href = "../todos_produtos.html";
       alert('Edicao concluida com sucesso!');
