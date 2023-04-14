@@ -1,3 +1,10 @@
+.produto {
+  background-color: var(--cor-cinza-fundo);
+}
+
+.produtos {
+  background-color: var(--cor-cinza-fundo);
+}
 
 .produto__img img{
   width: 100%;
