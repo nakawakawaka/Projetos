@@ -1,6 +1,6 @@
 import { produtoService } from "../service/produto-service.js";
 
-const criaProdutoBoxAdm = (url, nomeProduto, preco, id, descricao) => {
+const criaProdutoBoxAdm = (url, nomeProduto, preco, id) => {
   const novoProdutoBox = document.createElement('div');
   const conteudoAdm = `
   <div class="produtos__box">

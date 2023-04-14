@@ -1,0 +1,33 @@
+
+.produto__img img{
+  width: 100%;
+}
+
+.produto__info {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+.produto__titulo__principal {
+  font-size: 3em;
+  font-weight: lighter;
+}
+
+@media screen and (min-width: 360px) {
+  .produto-principal {
+    display: flex;
+    align-items: center;
+    gap: 2em;
+  }
+
+  .produto__img img {
+    max-height: 192px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .produto__img img {
+    max-height: 50%;
+  }
+}

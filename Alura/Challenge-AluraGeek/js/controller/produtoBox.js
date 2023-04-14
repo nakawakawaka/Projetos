@@ -1,6 +1,6 @@
 import { produtoService } from "../service/produto-service.js";
 
-const criaProdutoBox = (url, nomeProduto, preco, id, descricao) => {
+const criaProdutoBox = (url, nomeProduto, preco, id) => {
   const novoProdutoBox = document.createElement('div');
   const conteudoIndex = `
   <div class="produtos__box">
@@ -9,7 +9,7 @@ const criaProdutoBox = (url, nomeProduto, preco, id, descricao) => {
     </div>
     <h3 class="produto__titulo">${nomeProduto}</h3>
     <p class="produto__preco">${preco}</p>
-    <a href="../todos_produtos.html?${id}">Ver produto</a>
+    <a href="../produto.html?id=${id}" class="verProduto">Ver produto</a>
   </div>
   `;
 
@@ -21,11 +21,25 @@ const criaProdutoBox = (url, nomeProduto, preco, id, descricao) => {
 
 const produtosContainer = document.querySelector('[data-product]');
 
+produtosContainer.addEventListener('click', async evento => {
+  let verProduto = evento.target.className === "verProduto";
+  if (verProduto) {
+    try {
+      const linhaProduto = evento.target.closest('[data-id]');
+      let id = linhaProduto.dataset.id;
+      console.log(id)
+      produtoService.detalhaProduto(id);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+});
+
 const render = async () => {
   try {
     const listaProduto = await produtoService.listaProduto();
     listaProduto.forEach(elemento => {
-      produtosContainer.appendChild(criaProdutoBox(elemento.url, elemento.nomeProduto, elemento.preco));
+      produtosContainer.appendChild(criaProdutoBox(elemento.url, elemento.nomeProduto, elemento.preco, elemento.id));
     });
   } catch (error) {
     console.log(error);
