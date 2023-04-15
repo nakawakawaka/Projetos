@@ -1,0 +1,15 @@
+:root {
+  --cor-primaria: #2A7AE4;
+  --cor-preto: rgba(0, 0, 0, 0.9);;
+  --cor-preto-60: rgba(0, 0, 0, 0.6);
+  --cor-preto-50: rgba(0, 0, 0, 0.5);
+  --cor-preto-claro: #9E9E9E;
+  --cor-cinza-escuro: #C2C2C2;
+  --cor-cinza-medio: #E5E5E5;
+  --cor-cinza-claro: #F5F5F5;
+  --cor-erro-escuro: #C62828;
+  --cor-erro-medio: #E53935;
+  --cor-erro-calro: #FCE7E7;
+
+}
+

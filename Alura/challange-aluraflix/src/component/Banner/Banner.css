@@ -1,0 +1,30 @@
+.banner {
+  display: flex;
+  align-items: center;
+  color: white;
+  height: 100vh;
+}
+
+.bannerInfo {
+  margin-right: 4rem;
+}
+
+.bannerInfo h1 {
+  line-height: .5;
+  margin-top: 3rem;
+  font-size: 46px;
+}
+
+.thumbnail {
+  width: 40rem;
+  height: 21rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.banner img {
+  width: 100%;
+  height: 100%;
+}
