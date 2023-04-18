@@ -1,10 +1,10 @@
 import './Footer.css'
-import '../VariaveisCss/Variaveis.css'
+import logo from 'assets/img/logo.png'
 
 const Footer = () => {
   return (
     <section className='footer'>
-        <img src='img/logo.png' alt='logo Aluraflix'/>
+        <img src={logo} alt='logo Aluraflix'/>
     </section>
   )
 }

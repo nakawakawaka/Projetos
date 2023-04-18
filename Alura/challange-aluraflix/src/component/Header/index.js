@@ -1,12 +1,16 @@
 import './Header.css'
-import '../VariaveisCss/Variaveis.css'
-import Button from '../Button'
+import logo from 'assets/img/logo.png'
+import { Link } from 'react-router-dom';
+import Button from 'component/Button';
 
 const Header = () => {
   return (
     <section className='header'>
-        <img src='img/logo.png' alt='logo Aluraflix'/>
-        <Button texto='Novo vídeo' tipo='headerBtn' />
+      <Link to={'/'}>
+        <img src={logo} alt='logo Aluraflix' />
+      </Link>
+
+      <Button texto='Novo vídeo' tipo='headerBtn'  to={`/novovideo`}/>
     </section>
   )
 }

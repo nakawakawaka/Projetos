@@ -1,6 +1,4 @@
 .footer {
-  position: relative;
-  bottom: 0;
   width: 100%;
   text-align: center;
   border-top: solid 1px var(--cor-primaria);

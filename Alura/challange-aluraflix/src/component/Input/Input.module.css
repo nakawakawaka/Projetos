@@ -1,0 +1,4 @@
+input {
+  padding: var(--input-padding);
+  margin: 1rem 0;
+}

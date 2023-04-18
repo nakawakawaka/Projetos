@@ -1,9 +1,11 @@
-import './Button.css'
-import '../VariaveisCss/Variaveis.css'
+import { Link } from 'react-router-dom';
+import styles from './Button.module.css'
 
-const Button = ({ texto, tipo }) => {
+const Button = ({ texto, tipo, to }) => {
   return (
-    <button className={tipo}>{texto}</button>
+    <Link to={to}>
+      <button className={`${styles.botaoPrincipal} ${styles[tipo]}`}>{texto}</button>
+    </Link>
   )
 }
 
