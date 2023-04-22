@@ -1,32 +1,75 @@
+import styled from 'styled-components';
 import Button from 'component/Button';
-import './NovoVideo.css'
-import Input from "component/Input";
-import ListaSuspensa from 'component/ListaSuspensa';
-import TextArea from 'component/TextArea';
+import BtnSalvarLimpar from 'component/BtnSalvarLimpar';
+import { MenuItem, TextField, TextareaAutosize, createTheme, ThemeProvider } from '@mui/material';
+
+const BtnContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+`
+
+const Form = styled.form`
+  display: flex;
+  flex-direction: column;
+`
+
+const currencies = [
+  {
+    value: 'USD',
+    label: '$',
+  },
+  {
+    value: 'EUR',
+    label: '€',
+  },
+  {
+    value: 'BTC',
+    label: '฿',
+  },
+  {
+    value: 'JPY',
+    label: '¥',
+  },
+];
+
+const darkTheme = createTheme({
+  palette: {
+    mode: 'dark',
+  },
+})
 
 export default function NovoVideo() {
-  return(
-    <section className='novoVideo'>
-      <h1>Novo Video</h1>
+  return (
+    <ThemeProvider theme={darkTheme}>
+      <Form>
+        <h1>Novo Video</h1>
+        <TextField label='Título' variant="filled" margin='normal' />
+        <TextField label='Link do vídeo' variant="filled" margin='normal' />
+        <TextField label='Link da imagem do vídeo' variant="filled" margin='normal' />
+        <TextField
+          select
+          label="Select"
+          defaultValue="EUR"
+          helperText="Please select your currency"
+          variant="filled"
+          margin='normal'
+        >
+          {currencies.map((option) => (
+            <MenuItem key={option.value} value={option.value}>
+              {option.label}
+            </MenuItem>
+          ))}
+        </TextField>
+        <TextareaAutosize aria-label="Descrição" placeholder='Descrição' minRows={7} />
+        <TextField label='Código de segurança' variant="filled" margin='normal' />
 
-      <form>
-        <Input placeholder='Título' />
-        <Input placeholder='Link do vídeo' />
-        <Input placeholder='Link da imagem do vídeo' />
-        <ListaSuspensa />
-        <TextArea placeholder='Descricão' />
-        <Input placeholder='Código de segurança' />
-
-        <div className='btnContainer'>
-          <div>
-            <Button texto="Salvar" />
-            <Button texto="Limpar" tipo="limpar" />
-          </div>
+        <BtnContainer>
+          <BtnSalvarLimpar />
 
           <Button texto="Nova Categoria" to="/novacategoria" />
-        </div>
+        </BtnContainer>
 
-      </form>
-    </section>
+      </Form>
+    </ThemeProvider>
   )
 }

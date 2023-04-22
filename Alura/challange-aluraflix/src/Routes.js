@@ -9,14 +9,17 @@ export default function AppRoutes() {
   return (
     <BrowserRouter>
       <Header />
+      
+      <section>
+        <Routes>
 
-      <Routes>
-        <Route index element={<Home />} />
-        <Route path='novovideo' element={<NovoVideo />} />
-        <Route path='novacategoria' element={<NovaCategoria />} />
+          <Route index element={<Home />} />
+          <Route path='novovideo' element={<NovoVideo />} />
+          <Route path='novacategoria' element={<NovaCategoria />} />
 
-        <Route path='*' element={<div>Pagina não encontrada</div>} />
-      </Routes>
+          <Route path='*' element={<div>Pagina não encontrada</div>} />
+        </Routes>
+      </section>
 
       <Footer />
     </BrowserRouter>
