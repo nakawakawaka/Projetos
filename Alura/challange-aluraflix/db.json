@@ -1,0 +1,86 @@
+{
+  "videos": [
+    {
+      "id": 1,
+      "titulo": "Curso React: Conectando com API pelo React",
+      "url": "https://youtu.be/KCcSzv1RmuI",
+      "img": "https://i.ytimg.com/vi/KCcSzv1RmuI/maxresdefault.jpg",
+      "categoria": "Front-end",
+      "descricao": "Neste vídeo você vai aprender tudo sobre o recurso de Fetch API de JavaScript.Com ele é possível fazer requisições assíncronas à APIs de forma nativa, sem bibliotecas com jQuery ou Axios. Tornando o seu projeto muito mais performático, pois está utilizando um recurso da linguagem."
+    },
+    {
+      "id": 2,
+      "titulo": "Como fazer download das Thumbnails dos Vídeos do Youtube",
+      "url": "https://youtu.be/OjhwMOtAARI",
+      "img": "https://i.ytimg.com/vi/OjhwMOtAARI/maxresdefault.jpg",
+      "categoria": "VieosTeste",
+      "descricao": "descricao"
+    },
+    {
+      "id": 3,
+      "titulo": "APRENDA FETCH API DE JAVASCRIPT COM PROJETO",
+      "url": "https://youtu.be/qIGYM4S8x50",
+      "img": "https://i.ytimg.com/vi/qIGYM4S8x50/maxresdefault.jpg",
+      "categoria": "Front-end",
+      "descricao": "descricao"
+    },
+    {
+      "id": 4,
+      "titulo": "ReactJs : react-alice-carousel - Simple beginner tutorial",
+      "url": "https://youtu.be/LqePRLYwpHQ",
+      "img": "https://i.ytimg.com/vi/LqePRLYwpHQ/maxresdefault.jpg",
+      "categoria": "Front-end",
+      "descricao": "descricao"
+    },
+    {
+      "id": 5,
+      "titulo": "Material UI Tutorial - Custom Themes",
+      "url": "https://youtu.be/xIIJfmDnvPE",
+      "img": "https://i.ytimg.com/vi/xIIJfmDnvPE/maxresdefault.jpg",
+      "categoria": "Front-end",
+      "descricao": "descricao"
+    },
+    {
+      "titulo": "The ASUS ROG Falchion 65% Keyboard is CRAZY",
+      "url": "https://youtu.be/ypPQV3NfzEU",
+      "img": "https://i.ytimg.com/vi/ypPQV3NfzEU/maxresdefault.jpg",
+      "descricao": "ASUS quietly dropped one of the best 65% wireless gaming keyboards on the market with some awesome new features. Check out my review of the ASUS ROG Falchion! \n• Buy the Falchion here: https://amzn.to/3vRp8xh",
+      "codigo": "123",
+      "categoria": "VieosTeste",
+      "id": 6
+    }
+  ],
+  "categoria": [
+    {
+      "id": 1,
+      "nome": "Front-end",
+      "descricao": "descricao",
+      "cor": "",
+      "codigo": 123,
+      "videosId": 1
+    },
+    {
+      "id": 2,
+      "nome": "Back-end",
+      "descricao": "descricao",
+      "cor": "",
+      "codigo": 123,
+      "videosId": 1
+    },
+    {
+      "id": 3,
+      "nome": "DevOps",
+      "descricao": "descricao",
+      "cor": "",
+      "codigo": 123,
+      "videosId": 1
+    },
+    {
+      "nome": "VieosTeste",
+      "descricao": "",
+      "cor": "#00ff7b",
+      "codigo": "222",
+      "id": 4
+    }
+  ]
+}

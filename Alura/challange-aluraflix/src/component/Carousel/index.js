@@ -1,6 +1,7 @@
 import AliceCarousel from 'react-alice-carousel';
 import 'react-alice-carousel/lib/alice-carousel.css';
-import thumbnail from 'assets/img/thumbnail.avif'
+import { videosService } from 'Service/videos-service';
+import { useEffect, useState } from 'react';
 
 const handleDragStart = (e) => e.preventDefault();
 
@@ -10,30 +11,22 @@ const responsive = {
   1024: { items:6 }
 }
 
-const items = [
-  <img src={thumbnail} onDragStart={handleDragStart} role="presentation" alt='' width="300" height="300" />,
-  <img src={thumbnail} onDragStart={handleDragStart} role="presentation" alt='' width="300" height="300" />,
-  <img src={thumbnail} onDragStart={handleDragStart} role="presentation" alt='' width="300" height="300" />,
-  <img src={thumbnail} onDragStart={handleDragStart} role="presentation" alt='' width="300" height="300" />,
-  <img src={thumbnail} onDragStart={handleDragStart} role="presentation" alt='' width="300" height="300" />,
-  <img src={thumbnail} onDragStart={handleDragStart} role="presentation" alt='' width="300" height="300" />,
-  <img src={thumbnail} onDragStart={handleDragStart} role="presentation" alt='' width="300" height="300" />,
-  <img src={thumbnail} onDragStart={handleDragStart} role="presentation" alt='' width="300" height="300" />,
-  <img src={thumbnail} onDragStart={handleDragStart} role="presentation" alt='' width="300" height="300" />,
-  <img src={thumbnail} onDragStart={handleDragStart} role="presentation" alt='' width="300" height="300" />,
-
-
-]
-
 export default function Carousel() {
+  const [thumbnail, setThumbnail] = useState([]);
+
+  useEffect(() => {
+    videosService.listaVideos()
+      .then(data => setThumbnail(data))
+      .catch(err => console.log(err))
+  }, [])
+
   return (
   <AliceCarousel 
-  items={items} 
+  items={thumbnail.map(video => (<img key={video.id} src={video.img} onDragStart={handleDragStart} alt={video.titulo} role="presentation" width="320" height="186" />))} 
   mouseTracking 
   disableDotsControls 
   infinite
   responsive={responsive}
-
   />
   )
 }

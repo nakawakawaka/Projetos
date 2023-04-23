@@ -1,7 +1,9 @@
+import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import Button from 'component/Button';
 import BtnSalvarLimpar from 'component/BtnSalvarLimpar';
 import { MenuItem, TextField, TextareaAutosize, createTheme, ThemeProvider } from '@mui/material';
+import { videosService } from 'Service/videos-service';
 
 const BtnContainer = styled.div`
   display: flex;
@@ -13,55 +15,87 @@ const Form = styled.form`
   flex-direction: column;
 `
 
-const currencies = [
-  {
-    value: 'USD',
-    label: '$',
-  },
-  {
-    value: 'EUR',
-    label: '€',
-  },
-  {
-    value: 'BTC',
-    label: '฿',
-  },
-  {
-    value: 'JPY',
-    label: '¥',
-  },
-];
-
 const darkTheme = createTheme({
   palette: {
     mode: 'dark',
   },
 })
 
-export default function NovoVideo() {
+export default function NovoVideo({ onSubmit }) {
+  const [titulo, setTitulo] = useState('');
+  const [url, setUrl] = useState('');
+  const [img, setImg] = useState('');
+  const [categSelec, setCategSelec] = useState('');
+  const [descricao, setDescricao] = useState('');
+  const [codigo, setCodigo] = useState('');
+  const [categoria, setCategoria] = useState([]);
+
+  useEffect(() => {
+    videosService.listaCategorias()
+      .then(data => setCategoria(data))
+      .catch(err => console.log(err));
+  }, [])
+
+
   return (
     <ThemeProvider theme={darkTheme}>
-      <Form>
+      <Form onSubmit={event => {
+        event.preventDefault();
+        videosService.cadastraVideo(titulo, url, img, categSelec, descricao, codigo);
+      }}>
         <h1>Novo Video</h1>
-        <TextField label='Título' variant="filled" margin='normal' />
-        <TextField label='Link do vídeo' variant="filled" margin='normal' />
-        <TextField label='Link da imagem do vídeo' variant="filled" margin='normal' />
         <TextField
+          onChange={(event) => setTitulo(event.target.value)}
+          value={titulo}
+          label='Título'
+          variant="filled"
+          margin='normal'
+        />
+        <TextField
+          onChange={(event) => setUrl(event.target.value)}
+          value={url}
+          label='Link do vídeo'
+          variant="filled"
+          margin='normal'
+        />
+        <TextField
+          onChange={(event) => setImg(event.target.value)}
+          value={img}
+          label='Link da imagem do vídeo'
+          variant="filled"
+          margin='normal' />
+
+        <TextField
+          onChange={event => setCategSelec(event.target.value)}
+          value={categSelec}
           select
-          label="Select"
-          defaultValue="EUR"
-          helperText="Please select your currency"
+          label="Categoria"
+          defaultValue=""
+          helperText="Porfavor selecione uma categoria"
           variant="filled"
           margin='normal'
         >
-          {currencies.map((option) => (
-            <MenuItem key={option.value} value={option.value}>
-              {option.label}
+          {categoria.map((option) => (
+            <MenuItem key={option.id} value={option.nome}>
+              {option.nome} 
             </MenuItem>
           ))}
         </TextField>
-        <TextareaAutosize aria-label="Descrição" placeholder='Descrição' minRows={7} />
-        <TextField label='Código de segurança' variant="filled" margin='normal' />
+
+        <TextareaAutosize
+          onChange={(event) => setDescricao(event.target.value)}
+          value={descricao}
+          aria-label="Descrição"
+          placeholder='Descrição'
+          minRows={7}
+        />
+        <TextField
+          onChange={(event) => setCodigo(event.target.value)}
+          value={codigo}
+          label='Código de segurança'
+          variant="filled"
+          margin='normal'
+        />
 
         <BtnContainer>
           <BtnSalvarLimpar />

@@ -1,5 +1,5 @@
 /* eslint-disable import/no-anonymous-default-export */
-import Button from "component/Button";
+import { Button } from "@mui/material";
 import styled from "styled-components";
 
 const BtnSalvarLimpar = styled.div`
@@ -11,8 +11,12 @@ const BtnSalvarLimpar = styled.div`
 export default () => {
   return (
     <BtnSalvarLimpar>
-      <Button texto="Salvar"/>
-      <Button texto="Limpar" tipo="limpar" />
+      <Button variant="contained" size="large" type="submit">
+        Salvar
+      </Button>
+      <Button variant="outlined" size="large">
+        Limpar
+      </Button>
     </BtnSalvarLimpar>
   )
 }
