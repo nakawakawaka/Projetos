@@ -8,7 +8,7 @@ export default function Home({ categoria }) {
   const [videos, setVideos] = useState([]);
 
   useEffect(() => {
-    videosService.video(6)
+    videosService.video(1)
       .then(data => setBanner(data))
       .catch(err => console.log(err))
   }, [])
@@ -18,6 +18,12 @@ export default function Home({ categoria }) {
       .then(data => setVideos(data))
       .catch(err => console.log(err))
   }, [])
+
+  const mostraVideo = async id => {
+    await videosService.video(id)
+      .then(data => setBanner(data))
+      .catch(err => console.log(err));
+  }
 
   return (
     <section className='home'>
@@ -37,6 +43,7 @@ export default function Home({ categoria }) {
           nome={data.nome}
           descricao={data.descricao}
           videos={videos.filter(video => video.categoria === data.nome)}
+          mostraVideo={mostraVideo}
         />
       ))}
     </section>

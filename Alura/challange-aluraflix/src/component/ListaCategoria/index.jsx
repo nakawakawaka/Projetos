@@ -1,9 +1,7 @@
 import { Button, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from "@mui/material";
 
 
-export default function ListaCategoria({ categoria, deletar }) {
-
-
+export default function ListaCategoria({ categoria, deletar, editar }) {
   return (
     <TableContainer component={Paper}>
       <Table sx={{ minWidth: 650 }} aria-label="caption table">
@@ -17,18 +15,18 @@ export default function ListaCategoria({ categoria, deletar }) {
         </TableHead>
         <TableBody>
           {categoria.map((data) => (
-            <TableRow key={data.id}>
+            <TableRow key={data.nome}>
               <TableCell component="th" scope="data">
                 {data.nome}
               </TableCell>
               <TableCell align="left">{data.descricao}</TableCell>
               <TableCell align="center" padding="none">
-                <Button variant="text" value="Editar">
+                <Button variant="text" value="Editar" onClick={async () => await editar(data)}>
                   Editar
                 </Button>
               </TableCell>
               <TableCell align="center" padding="none">
-                <Button variant="text" onClick={() => deletar(data.id)} >
+                <Button variant="text" color="error" onClick={async () => await deletar(data.id)} >
                   Remover
                 </Button>
               </TableCell>

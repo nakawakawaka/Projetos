@@ -16,13 +16,19 @@ export default function AppRoutes() {
       .catch(err => console.log(err));
   }, [])
 
-  const cadastraCategoria = (novaCategoria) => {
+  const cadastraCategoria =  (novaCategoria) => {
+    videosService.cadastraCategoria(novaCategoria.nome, novaCategoria.descricao, novaCategoria.cor, novaCategoria.codigo);
     setCategoria([...Categoria, novaCategoria])
   }
 
   const deletaCategoria = (id) => {
-    setCategoria(Categoria.filter(categoria => categoria.id !== id));
     videosService.removeCategoria(id)
+    setCategoria(Categoria.filter(categoria => categoria.id !== id));
+  }
+
+  const editaCategoria = (edit, props) => {
+    videosService.editaCategoria(edit, props.nome, props.descricao, props.cor, props.codigo);
+    setCategoria(Categoria.map(categ => categ.id !== edit ? categ : props))
   }
 
   return (
@@ -47,6 +53,7 @@ export default function AppRoutes() {
                 categoria={Categoria}
                 novaCategoria={cadastraCategoria}
                 deletar={deletaCategoria}
+                editar={editaCategoria}
               />
             }
           />

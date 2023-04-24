@@ -9,10 +9,23 @@ const responsive = {
   1024: { items: 6 }
 }
 
-export default function Carousel({ videos }) {
+export default function Carousel({ videos, cor, mostraVideo}) {
   return (
     <AliceCarousel
-      items={videos.map(video => (<img key={video.id} src={video.img} onDragStart={handleDragStart} alt={video.titulo} role="presentation" width="320" height="186" />))}
+      items={videos.map(video => (
+        <img
+          key={video.id}
+          id={video.id}
+          src={video.img}
+          onDragStart={handleDragStart}
+          alt={video.titulo}
+          role="presentation"
+          width="320"
+          height="186"
+          style={{ border: `solid 3px ${cor}` }}
+          onClick={(e) => {mostraVideo(e.target.id)}}
+        />
+      ))}
       mouseTracking
       disableDotsControls
       infinite

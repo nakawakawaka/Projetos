@@ -40,16 +40,14 @@ const video = (id) => {
   });
 }
 
-
-
 const listaCategorias = () => {
   return fetch('http://localhost:3000/categoria')
   .then(resp => resp.json())
   .catch(err => console.log(err))
 }
 
-const cadastraCategoria = (nome, descricao, cor, codigo) => {
-  return fetch('http://localhost:3000/categoria', {
+const cadastraCategoria = async (nome, descricao, cor, codigo) => {
+  return await fetch('http://localhost:3000/categoria', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
@@ -68,8 +66,8 @@ const cadastraCategoria = (nome, descricao, cor, codigo) => {
   })
 }
 
-const removeCategoria = (id) => {
-  return fetch(`http://localhost:3000/categoria/${id}`, {
+const removeCategoria = async (id) => {
+  return await fetch(`http://localhost:3000/categoria/${id}`, {
     method: 'DELETE'
   }).then(resposta => {
     if(!resposta.ok) {
@@ -79,7 +77,7 @@ const removeCategoria = (id) => {
 }
 
 const editaCategoria = (id, nome, descricao, cor, codigo) => {
-  return fetch (`http://localhost:3000/categoria/${id}`, {
+  return fetch(`http://localhost:3000/categoria/${id}`, {
     method: 'PUT',
     headers: {
       'Content-type': 'application/json'

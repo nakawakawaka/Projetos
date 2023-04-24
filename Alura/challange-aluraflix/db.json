@@ -61,20 +61,25 @@
   ],
   "categoria": [
     {
-      "id": 2,
+      "nome": "Front-end",
+      "descricao": "Videos que me ajudaram a desenvolver este projeto",
+      "cor": "#6BD1FF",
+      "codigo": 123,
+      "id": 1
+    },
+    {
       "nome": "Back-end",
       "descricao": "Videos que me ajudaram a desenvolver a api do projeto",
       "cor": "#6B5BE2",
       "codigo": 123,
-      "videosId": 1
+      "id": 2
     },
     {
-      "id": 3,
       "nome": "DevOps",
       "descricao": "descricao",
       "cor": "#FF8C2A",
       "codigo": 123,
-      "videosId": 1
+      "id": 3
     },
     {
       "nome": "VieosTeste",
@@ -89,6 +94,13 @@
       "cor": "#6500a8",
       "codigo": "222",
       "id": 5
+    },
+    {
+      "nome": "Teste para Ediçao de dados",
+      "descricao": "Testando edição de dados da Categoria",
+      "cor": "#c20f0f",
+      "codigo": "111",
+      "id": 6
     }
   ]
 }

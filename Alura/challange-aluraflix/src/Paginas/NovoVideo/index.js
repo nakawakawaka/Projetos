@@ -80,6 +80,7 @@ export default function NovoVideo({ categoria }) {
           aria-label="Descrição"
           placeholder='Descrição'
           minRows={7}
+          style={{backgroundColor:'#2e2e2e', marginTop: '1rem'}}
         />
         <TextField
           onChange={(event) => setCodigo(event.target.value)}

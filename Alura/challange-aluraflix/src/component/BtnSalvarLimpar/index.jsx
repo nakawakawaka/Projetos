@@ -8,13 +8,13 @@ const BtnSalvarLimpar = styled.div`
   margin-bottom: 2rem;
 `
 
-export default () => {
+export default ({ limpar }) => {
   return (
     <BtnSalvarLimpar>
       <Button variant="contained" size="large" type="submit">
         Salvar
       </Button>
-      <Button variant="outlined" size="large" type="reset">
+      <Button variant="outlined" size="large" onClick={limpar}>
         Limpar
       </Button>
     </BtnSalvarLimpar>

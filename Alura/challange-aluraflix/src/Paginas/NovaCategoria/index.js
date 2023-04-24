@@ -1,13 +1,21 @@
-import styled from "styled-components";
-import { TextField, TextareaAutosize, ThemeProvider, createTheme } from "@mui/material";
-import BtnSalvarLimpar from "component/BtnSalvarLimpar";
 import { useState } from "react";
-import { videosService } from "Service/videos-service";
+import { TextField, TextareaAutosize, ThemeProvider, createTheme } from "@mui/material";
+import styled from "styled-components";
+import BtnSalvarLimpar from "component/BtnSalvarLimpar";
 import ListaCategoria from "component/ListaCategoria";
+import { videosService } from "Service/videos-service";
 
 const Form = styled.form`
   display: flex;
   flex-direction: column;
+`
+
+const InputColor = styled.input`
+  width: 100%;
+  height: 2.5rem;
+  margin-top: 1rem;
+  background-color: #2e2e2e;
+  padding-top: .7rem;
 `
 
 const darkTheme = createTheme({
@@ -16,18 +24,39 @@ const darkTheme = createTheme({
   },
 })
 
-export default function NovaCategoria({ categoria, novaCategoria, deletar }) {
+export default function NovaCategoria({ categoria, novaCategoria, deletar, editar }) {
   const [nome, setNome] = useState('');
   const [descricao, setDescricao] = useState('');
   const [cor, setCor] = useState('');
   const [codigo, setCodigo] = useState('');
+  const [edit, setEdit] = useState('')
 
+  const editarCategoria = (props) => {
+    setNome(props.nome)
+    setDescricao(props.descricao)
+    setCor(props.cor)
+    setCodigo(props.codigo)
+    setEdit(props.id)
+  }
+
+  const limpar = () => {
+    setNome("")
+    setDescricao("")
+    setCor("")
+    setCodigo("")
+    setEdit("")
+  }
+  
   return (
     <ThemeProvider theme={darkTheme}>
-      <Form onSubmit={event => {
+      <Form onSubmit={async event => {
         event.preventDefault();
-        videosService.cadastraCategoria(nome, descricao, cor, codigo);
-        novaCategoria(nome, descricao, cor, codigo);
+        if (!edit) {
+          await novaCategoria({nome, descricao, cor, codigo})
+        } else {
+          await editar(edit, {nome, descricao, cor, codigo});
+          setCodigo('')
+        }
       }}>
         <h1>Nova Categoria</h1>
         <TextField
@@ -44,8 +73,9 @@ export default function NovaCategoria({ categoria, novaCategoria, deletar }) {
           aria-label="Descrição"
           placeholder='Descrição'
           minRows={7}
+          style={{backgroundColor:'#2e2e2e', marginTop: '1rem'}}
         />
-        <input
+        <InputColor
           onChange={(event) => setCor(event.target.value)}
           value={cor}
           type="color"
@@ -57,9 +87,9 @@ export default function NovaCategoria({ categoria, novaCategoria, deletar }) {
           variant="filled"
           margin='normal'
         />
-        <BtnSalvarLimpar />
+        <BtnSalvarLimpar limpar={limpar} />
       </Form>
-      <ListaCategoria categoria={categoria} deletar={deletar} />
+      <ListaCategoria categoria={categoria} deletar={deletar} editar={editarCategoria} />
     </ThemeProvider>
   )
 }
