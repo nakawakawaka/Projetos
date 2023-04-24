@@ -1,22 +1,44 @@
+import { useEffect, useState } from 'react';
+import { videosService } from 'Service/videos-service';
 import Banner from 'component/Banner';
-import thumbnail from 'assets/img/thumbnail.avif'
-import Carousel from 'component/Carousel';
+import Categorias from 'component/Categorias';
 
-const lorem = 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type'
+export default function Home({ categoria }) {
+  const [banner, setBanner] = useState('');
+  const [videos, setVideos] = useState([]);
 
-export default function Home() {
+  useEffect(() => {
+    videosService.video(6)
+      .then(data => setBanner(data))
+      .catch(err => console.log(err))
+  }, [])
+
+  useEffect(() => {
+    videosService.listaVideos()
+      .then(data => setVideos(data))
+      .catch(err => console.log(err))
+  }, [])
 
   return (
-    <div className='home'>
+    <section className='home'>
       <Banner
-        categoria='Fron-end'
-        titulo='titulo'
-        descricao={lorem}
-        img={thumbnail}
+        categoria={banner.categoria}
+        titulo={banner.titulo}
+        descricao={banner.descricao}
+        img={banner.img}
+        url={banner.url}
       />
-      <Carousel />
-      <Carousel />
-      <Carousel />
-    </div>
+
+      {categoria.map((data) => (
+        <Categorias
+          key={data.id}
+          id={data.id}
+          cor={data.cor}
+          nome={data.nome}
+          descricao={data.descricao}
+          videos={videos.filter(video => video.categoria === data.nome)}
+        />
+      ))}
+    </section>
   )
 }

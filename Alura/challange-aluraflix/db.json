@@ -48,22 +48,23 @@
       "codigo": "123",
       "categoria": "VieosTeste",
       "id": 6
+    },
+    {
+      "titulo": "O QUE É FRONT-END E BACK-END???",
+      "url": "https://youtu.be/Em0R3csNMVE",
+      "img": "https://i.ytimg.com/vi/Em0R3csNMVE/maxresdefault.jpg",
+      "categoria": "Back-end",
+      "descricao": "Quer se aprofundar mais? Aproveite o desconto na Alura: https://alura.com.br/promocao/rafabal... 🤿\nLembrando que tem curso meu por lá de HTML e CSS, além de diversos outros, já que é a maior plataforma de ensino de tecnologia do Brasil!",
+      "codigo": "555",
+      "id": 7
     }
   ],
   "categoria": [
     {
-      "id": 1,
-      "nome": "Front-end",
-      "descricao": "descricao",
-      "cor": "",
-      "codigo": 123,
-      "videosId": 1
-    },
-    {
       "id": 2,
       "nome": "Back-end",
-      "descricao": "descricao",
-      "cor": "",
+      "descricao": "Videos que me ajudaram a desenvolver a api do projeto",
+      "cor": "#6B5BE2",
       "codigo": 123,
       "videosId": 1
     },
@@ -71,16 +72,23 @@
       "id": 3,
       "nome": "DevOps",
       "descricao": "descricao",
-      "cor": "",
+      "cor": "#FF8C2A",
       "codigo": 123,
       "videosId": 1
     },
     {
       "nome": "VieosTeste",
-      "descricao": "",
-      "cor": "#00ff7b",
+      "descricao": "Videos de teste",
+      "cor": "#DC6EBE",
       "codigo": "222",
       "id": 4
+    },
+    {
+      "nome": "Data Science",
+      "descricao": "A ciência de dados é o estudo dos dados para extrair insights significativos para os negócios.",
+      "cor": "#6500a8",
+      "codigo": "222",
+      "id": 5
     }
   ]
 }

@@ -6,6 +6,7 @@ const Footer = styled.section`
   width: 100%;
   text-align: center;
   border-top: solid 1px var(--cor-primaria);
+  margin-top: 10rem;
 `
 
 const Img = styled.img`

@@ -3,6 +3,7 @@ import { TextField, TextareaAutosize, ThemeProvider, createTheme } from "@mui/ma
 import BtnSalvarLimpar from "component/BtnSalvarLimpar";
 import { useState } from "react";
 import { videosService } from "Service/videos-service";
+import ListaCategoria from "component/ListaCategoria";
 
 const Form = styled.form`
   display: flex;
@@ -15,8 +16,7 @@ const darkTheme = createTheme({
   },
 })
 
-
-export default function NovaCategoria() {
+export default function NovaCategoria({ categoria, novaCategoria, deletar }) {
   const [nome, setNome] = useState('');
   const [descricao, setDescricao] = useState('');
   const [cor, setCor] = useState('');
@@ -26,7 +26,8 @@ export default function NovaCategoria() {
     <ThemeProvider theme={darkTheme}>
       <Form onSubmit={event => {
         event.preventDefault();
-        videosService.cadastraCategoria(nome, descricao, cor, codigo)
+        videosService.cadastraCategoria(nome, descricao, cor, codigo);
+        novaCategoria(nome, descricao, cor, codigo);
       }}>
         <h1>Nova Categoria</h1>
         <TextField
@@ -58,6 +59,7 @@ export default function NovaCategoria() {
         />
         <BtnSalvarLimpar />
       </Form>
+      <ListaCategoria categoria={categoria} deletar={deletar} />
     </ThemeProvider>
   )
 }

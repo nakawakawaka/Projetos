@@ -1,9 +1,9 @@
 .bannerInfo {
   margin-right: 4rem;
+  width: 50%;
 }
 
 .bannerInfo h1 {
-  line-height: .5;
   margin-top: 3rem;
   font-size: 46px;
 }

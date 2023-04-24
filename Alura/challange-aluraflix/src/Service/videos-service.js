@@ -68,10 +68,42 @@ const cadastraCategoria = (nome, descricao, cor, codigo) => {
   })
 }
 
+const removeCategoria = (id) => {
+  return fetch(`http://localhost:3000/categoria/${id}`, {
+    method: 'DELETE'
+  }).then(resposta => {
+    if(!resposta.ok) {
+      throw new Error ('Não foi possível remover a categoria.');
+    }
+  })
+}
+
+const editaCategoria = (id, nome, descricao, cor, codigo) => {
+  return fetch (`http://localhost:3000/categoria/${id}`, {
+    method: 'PUT',
+    headers: {
+      'Content-type': 'application/json'
+    },
+    body: JSON.stringify({
+      nome: nome,
+      descricao: descricao,
+      cor: cor,
+      codigo: codigo
+    })
+  }).then(resposta => {
+    if (resposta.ok) {
+      return resposta.json();
+    }
+    throw new Error('Não foi possível editar categoria.');
+  })
+}
+
 export const videosService = {
   listaVideos,
-  listaCategorias,
   cadastraVideo,
+  listaCategorias,
   cadastraCategoria,
+  removeCategoria,
+  editaCategoria,
   video
 };

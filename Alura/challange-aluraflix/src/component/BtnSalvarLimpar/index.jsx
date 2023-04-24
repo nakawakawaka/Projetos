@@ -5,7 +5,7 @@ import styled from "styled-components";
 const BtnSalvarLimpar = styled.div`
   display: flex;
   gap: 1rem;
-  margin-bottom: 11rem;
+  margin-bottom: 2rem;
 `
 
 export default () => {
@@ -14,7 +14,7 @@ export default () => {
       <Button variant="contained" size="large" type="submit">
         Salvar
       </Button>
-      <Button variant="outlined" size="large">
+      <Button variant="outlined" size="large" type="reset">
         Limpar
       </Button>
     </BtnSalvarLimpar>

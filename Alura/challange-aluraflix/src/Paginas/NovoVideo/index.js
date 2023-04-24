@@ -1,9 +1,9 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
+import { videosService } from 'Service/videos-service';
+import { MenuItem, TextField, TextareaAutosize, createTheme, ThemeProvider } from '@mui/material';
 import styled from 'styled-components';
 import Button from 'component/Button';
 import BtnSalvarLimpar from 'component/BtnSalvarLimpar';
-import { MenuItem, TextField, TextareaAutosize, createTheme, ThemeProvider } from '@mui/material';
-import { videosService } from 'Service/videos-service';
 
 const BtnContainer = styled.div`
   display: flex;
@@ -21,21 +21,13 @@ const darkTheme = createTheme({
   },
 })
 
-export default function NovoVideo({ onSubmit }) {
+export default function NovoVideo({ categoria }) {
   const [titulo, setTitulo] = useState('');
   const [url, setUrl] = useState('');
   const [img, setImg] = useState('');
   const [categSelec, setCategSelec] = useState('');
   const [descricao, setDescricao] = useState('');
   const [codigo, setCodigo] = useState('');
-  const [categoria, setCategoria] = useState([]);
-
-  useEffect(() => {
-    videosService.listaCategorias()
-      .then(data => setCategoria(data))
-      .catch(err => console.log(err));
-  }, [])
-
 
   return (
     <ThemeProvider theme={darkTheme}>
