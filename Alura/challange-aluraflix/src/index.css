@@ -37,8 +37,8 @@ body {
   color: white;
 }
 
-section {
-  /* padding: 1.5rem 2.5rem; */
+.container {
+  padding: 1.5rem 2.5rem;
 }
 
 h1 {

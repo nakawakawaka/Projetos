@@ -1,9 +1,12 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import { videosService } from 'Service/videos-service';
 import { MenuItem, TextField, TextareaAutosize, createTheme, ThemeProvider } from '@mui/material';
 import styled from 'styled-components';
 import Button from 'component/Button';
 import BtnSalvarLimpar from 'component/BtnSalvarLimpar';
+import ValidacoesFormulario from 'Context/ValidacoesFormulario';
+import useErros from 'Hooks/useErros';
+import { validaCampos } from 'Models/Cadastro';
 
 const BtnContainer = styled.div`
   display: flex;
@@ -28,24 +31,46 @@ export default function NovoVideo({ categoria }) {
   const [categSelec, setCategSelec] = useState('');
   const [descricao, setDescricao] = useState('');
   const [codigo, setCodigo] = useState('');
+  const validacoes = useContext(ValidacoesFormulario);
+  const [erros, validarCampos, possoEnviar] = useErros(validacoes);
+
+  const limpar = () => {
+    setTitulo('');
+    setUrl('');
+    setImg('');
+    setCategSelec('');
+    setDescricao('');
+    setCodigo('');
+  }
 
   return (
     <ThemeProvider theme={darkTheme}>
       <Form onSubmit={event => {
         event.preventDefault();
-        videosService.cadastraVideo(titulo, url, img, categSelec, descricao, codigo);
-      }}>
+        if(possoEnviar()) {
+          videosService.cadastraVideo(titulo, url, img, categSelec, descricao, codigo);
+        }
+      }} className='container' >
         <h1>Novo Video</h1>
         <TextField
           onChange={(event) => setTitulo(event.target.value)}
           value={titulo}
+          onBlur={validarCampos}
+          error={!erros.titulo.valido}
+          helperText={erros.titulo.texto}
+          name='titulo'
           label='Título'
           variant="filled"
           margin='normal'
+          required
         />
         <TextField
           onChange={(event) => setUrl(event.target.value)}
           value={url}
+          onBlur={validarCampos}
+          error={!erros.url.valido}
+          helperText={erros.url.texto}
+          name='url'
           label='Link do vídeo'
           variant="filled"
           margin='normal'
@@ -53,6 +78,10 @@ export default function NovoVideo({ categoria }) {
         <TextField
           onChange={(event) => setImg(event.target.value)}
           value={img}
+          onBlur={validarCampos}
+          error={!erros.img.valido}
+          helperText={erros.img.texto}
+          name='img'
           label='Link da imagem do vídeo'
           variant="filled"
           margin='normal' />
@@ -61,9 +90,10 @@ export default function NovoVideo({ categoria }) {
           onChange={event => setCategSelec(event.target.value)}
           value={categSelec}
           select
-          label="Categoria"
           defaultValue=""
           helperText="Porfavor selecione uma categoria"
+          label="Categoria"
+          name='categoria'
           variant="filled"
           margin='normal'
         >
@@ -85,13 +115,17 @@ export default function NovoVideo({ categoria }) {
         <TextField
           onChange={(event) => setCodigo(event.target.value)}
           value={codigo}
+          onBlur={validarCampos}
+          error={!erros.codigo.valido}
+          helperText={erros.codigo.texto}
+          name='codigo'
           label='Código de segurança'
           variant="filled"
           margin='normal'
         />
 
         <BtnContainer>
-          <BtnSalvarLimpar />
+          <BtnSalvarLimpar limpar={limpar} />
 
           <Button texto="Nova Categoria" to="/novacategoria" />
         </BtnContainer>

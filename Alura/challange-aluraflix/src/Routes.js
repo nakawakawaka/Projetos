@@ -6,6 +6,9 @@ import NovoVideo from './Paginas/NovoVideo';
 import NovaCategoria from './Paginas/NovaCategoria';
 import Footer from './component/Footer';
 import Header from 'component/Header';
+import { validaCampos } from 'Models/Cadastro';
+import ValidacoesFormulario from 'Context/ValidacoesFormulario';
+
 
 export default function AppRoutes() {
   const [Categoria, setCategoria] = useState([]);
@@ -14,13 +17,13 @@ export default function AppRoutes() {
     videosService.listaCategorias()
       .then(data => setCategoria(data))
       .catch(err => console.log(err));
+
   }, [])
 
-  const cadastraCategoria =  (novaCategoria) => {
+  const cadastraCategoria = (novaCategoria) => {
     videosService.cadastraCategoria(novaCategoria.nome, novaCategoria.descricao, novaCategoria.cor, novaCategoria.codigo);
     setCategoria([...Categoria, novaCategoria])
   }
-
   const deletaCategoria = (id) => {
     videosService.removeCategoria(id)
     setCategoria(Categoria.filter(categoria => categoria.id !== id));
@@ -36,30 +39,40 @@ export default function AppRoutes() {
       <Header />
 
       <section>
-        <Routes>
+        <ValidacoesFormulario.Provider value={{
+          titulo: validaCampos,
+          url: validaCampos,
+          img: validaCampos,
+          categSelec: validaCampos,
+          codigo: validaCampos,
+          nome: validaCampos,
+          cor: validaCampos,
+        }}>
+          <Routes>
+            <Route index element={<Home categoria={Categoria} />} />
 
-          <Route
-            index
-            element={<Home categoria={Categoria} />}
-          />
-          <Route
-            path='novovideo'
-            element={<NovoVideo categoria={Categoria} />}
-          />
-          <Route
-            path='novacategoria'
-            element={
-              <NovaCategoria
-                categoria={Categoria}
-                novaCategoria={cadastraCategoria}
-                deletar={deletaCategoria}
-                editar={editaCategoria}
-              />
-            }
-          />
+            <Route
+              path='novovideo'
+              element={
+                <NovoVideo categoria={Categoria} validacoes={{ titulo: validaCampos }}
+                />
+              }
+            />
 
-          <Route path='*' element={<div>Pagina não encontrada</div>} />
-        </Routes>
+            <Route
+              path='novacategoria'
+              element={
+                <NovaCategoria
+                  categoria={Categoria}
+                  novaCategoria={cadastraCategoria}
+                  deletar={deletaCategoria}
+                  editar={editaCategoria}
+                />
+              }
+            />
+            <Route path='*' element={<div>Pagina não encontrada</div>} />
+          </Routes>
+        </ValidacoesFormulario.Provider>
       </section>
 
       <Footer />

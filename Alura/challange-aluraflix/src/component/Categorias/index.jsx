@@ -9,13 +9,15 @@ const CategoriaContainer = styled.div`
   margin-bottom: 1rem;
 `
 
-export default function Categorias({ id, cor, nome, descricao, videos, mostraVideo }) {
+export default function Categorias({ id, cor, nome, descricao, videos, mostraVideo, banner }) {
   return (
-    videos.length > 0 && <div>
-      <CategoriaContainer key={id}>
-        <Button style={{ backgroundColor:`${cor}`, color:"white" }}>{nome}</Button>
+    videos.length > 0 && <div className='container'>
+      {banner !== nome && <CategoriaContainer key={id}>
+        <Button style={{ backgroundColor: `${cor}`, color: "white" }}>
+          {nome}
+        </Button>
         <p>{descricao}</p>
-      </CategoriaContainer>
+      </CategoriaContainer>}
       <Carousel videos={videos} cor={cor} mostraVideo={mostraVideo} />
     </div>
   )

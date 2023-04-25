@@ -5,7 +5,6 @@ import './Banner.css'
 import ReactPlayer from 'react-player';
 
 const BannerContainer = styled.div`
-
   background-image: url(${({ img }) => img});
   background-position: center;
   background-repeat: no-repeat;
@@ -25,7 +24,7 @@ const Overlay = styled.div`
 const Banner = ({ categoria, titulo, descricao, img, url }) => {
   return (
     <BannerContainer img={img} >
-      <Overlay>
+      <Overlay className='container'>
         <div className='bannerInfo'>
           <Button texto={categoria} tipo='bannerBtn' />
           <h1>{titulo}</h1>

@@ -6,10 +6,10 @@ const handleDragStart = (e) => e.preventDefault();
 const responsive = {
   0: { items: 1 },
   568: { items: 3, itemsFit: 'contain' },
-  1024: { items: 6 }
+  1024: { items: 7 }
 }
 
-export default function Carousel({ videos, cor, mostraVideo}) {
+export default function Carousel({ videos, cor, mostraVideo }) {
   return (
     <AliceCarousel
       items={videos.map(video => (
@@ -23,12 +23,14 @@ export default function Carousel({ videos, cor, mostraVideo}) {
           width="320"
           height="186"
           style={{ border: `solid 3px ${cor}` }}
-          onClick={(e) => {mostraVideo(e.target.id)}}
+          onClick={(e) => { mostraVideo(e.target.id) }}
         />
       ))}
       mouseTracking
       disableDotsControls
+      disableButtonsControls
       infinite
+      autoWidth
       responsive={responsive}
     />
   )

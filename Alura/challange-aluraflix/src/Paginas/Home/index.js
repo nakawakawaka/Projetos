@@ -2,6 +2,12 @@ import { useEffect, useState } from 'react';
 import { videosService } from 'Service/videos-service';
 import Banner from 'component/Banner';
 import Categorias from 'component/Categorias';
+import styled from 'styled-components';
+
+
+const CategoriasContainer = styled.div`
+  margin-top: -2.5rem;
+`
 
 export default function Home({ categoria }) {
   const [banner, setBanner] = useState('');
@@ -36,15 +42,18 @@ export default function Home({ categoria }) {
       />
 
       {categoria.map((data) => (
-        <Categorias
-          key={data.id}
-          id={data.id}
-          cor={data.cor}
-          nome={data.nome}
-          descricao={data.descricao}
-          videos={videos.filter(video => video.categoria === data.nome)}
-          mostraVideo={mostraVideo}
-        />
+          <CategoriasContainer>
+          <Categorias
+            key={data.id}
+            id={data.id}
+            cor={data.cor}
+            nome={data.nome}
+            descricao={data.descricao}
+            videos={videos.filter(video => video.categoria === data.nome)}
+            mostraVideo={mostraVideo}
+            banner={banner.categoria}
+          />
+        </CategoriasContainer>
       ))}
     </section>
   )

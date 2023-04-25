@@ -1,9 +1,10 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { TextField, TextareaAutosize, ThemeProvider, createTheme } from "@mui/material";
 import styled from "styled-components";
 import BtnSalvarLimpar from "component/BtnSalvarLimpar";
 import ListaCategoria from "component/ListaCategoria";
-import { videosService } from "Service/videos-service";
+import useErros from "Hooks/useErros";
+import ValidacoesFormulario from "Context/ValidacoesFormulario";
 
 const Form = styled.form`
   display: flex;
@@ -24,12 +25,14 @@ const darkTheme = createTheme({
   },
 })
 
-export default function NovaCategoria({ categoria, novaCategoria, deletar, editar }) {
+export default function NovaCategoria({ categoria, novaCategoria, deletar, editar}) {
   const [nome, setNome] = useState('');
   const [descricao, setDescricao] = useState('');
   const [cor, setCor] = useState('');
   const [codigo, setCodigo] = useState('');
-  const [edit, setEdit] = useState('')
+  const [edit, setEdit] = useState('');
+  const validacoes = useContext(ValidacoesFormulario);
+  const [erros, validarCampos, possoEnviar] = useErros(validacoes);
 
   const editarCategoria = (props) => {
     setNome(props.nome)
@@ -51,21 +54,28 @@ export default function NovaCategoria({ categoria, novaCategoria, deletar, edita
     <ThemeProvider theme={darkTheme}>
       <Form onSubmit={async event => {
         event.preventDefault();
-        if (!edit) {
-          await novaCategoria({nome, descricao, cor, codigo})
-        } else {
-          await editar(edit, {nome, descricao, cor, codigo});
-          setCodigo('')
+        if(possoEnviar()) {
+          if (!edit) {
+            await novaCategoria({nome, descricao, cor, codigo})
+          } else {
+            await editar(edit, {nome, descricao, cor, codigo});
+            setCodigo('')
+          }
         }
-      }}>
+      }} className='container'>
         <h1>Nova Categoria</h1>
         <TextField
           onChange={(event) => setNome(event.target.value)}
           value={nome}
+          onBlur={validarCampos}
+          error={!erros.nome.valido}
+          helperText={erros.nome.texto}
+          name="nome"
           label="Nome"
           variant="filled"
           margin='normal'
           fullWidth
+          required
         />
         <TextareaAutosize
           onChange={(event) => setDescricao(event.target.value)}
@@ -78,14 +88,20 @@ export default function NovaCategoria({ categoria, novaCategoria, deletar, edita
         <InputColor
           onChange={(event) => setCor(event.target.value)}
           value={cor}
+          name="cor"
           type="color"
         />
         <TextField
           onChange={(event) => setCodigo(event.target.value)}
           value={codigo}
+          onBlur={validarCampos}
+          error={!erros.codigo.valido}
+          helperText={erros.codigo.texto}
+          name="codigo"
           label='Código de segurança'
           variant="filled"
           margin='normal'
+          required
         />
         <BtnSalvarLimpar limpar={limpar} />
       </Form>
