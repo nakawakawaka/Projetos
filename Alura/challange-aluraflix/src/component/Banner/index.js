@@ -18,6 +18,13 @@ const Overlay = styled.div`
   justify-content: center;
   color: white;
   height: 100vh;
+
+  @media screen and (max-width: 950px) {
+    flex-direction: column-reverse;
+    height: 100%;
+    gap: 4rem;
+    padding-top: 5rem;
+  }
 `
 
 
@@ -31,12 +38,10 @@ const Banner = ({ categoria, titulo, descricao, img, url }) => {
           <p>{descricao}</p>
         </div>
 
-        <ReactPlayer
-          url={url}
-          width={640}
-          height={360}
-          controls
-        />
+        <div className='player'>
+          <ReactPlayer url={url} controls />
+        </div>
+
 
       </Overlay>
     </BannerContainer>

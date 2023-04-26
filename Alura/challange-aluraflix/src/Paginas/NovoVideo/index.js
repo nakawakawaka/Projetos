@@ -1,12 +1,12 @@
 import { useContext, useState } from 'react';
 import { videosService } from 'Service/videos-service';
-import { MenuItem, TextField, TextareaAutosize, createTheme, ThemeProvider } from '@mui/material';
+import { MenuItem, TextField, TextareaAutosize, createTheme, ThemeProvider, Button } from '@mui/material';
 import styled from 'styled-components';
-import Button from 'component/Button';
+// import Button from 'component/Button';
 import BtnSalvarLimpar from 'component/BtnSalvarLimpar';
 import ValidacoesFormulario from 'Context/ValidacoesFormulario';
 import useErros from 'Hooks/useErros';
-import { validaCampos } from 'Models/Cadastro';
+import { Link } from 'react-router-dom';
 
 const BtnContainer = styled.div`
   display: flex;
@@ -47,7 +47,7 @@ export default function NovoVideo({ categoria }) {
     <ThemeProvider theme={darkTheme}>
       <Form onSubmit={event => {
         event.preventDefault();
-        if(possoEnviar()) {
+        if (possoEnviar()) {
           videosService.cadastraVideo(titulo, url, img, categSelec, descricao, codigo);
         }
       }} className='container' >
@@ -99,7 +99,7 @@ export default function NovoVideo({ categoria }) {
         >
           {categoria.map((option) => (
             <MenuItem key={option.id} value={option.nome}>
-              {option.nome} 
+              {option.nome}
             </MenuItem>
           ))}
         </TextField>
@@ -110,7 +110,7 @@ export default function NovoVideo({ categoria }) {
           aria-label="Descrição"
           placeholder='Descrição'
           minRows={7}
-          style={{backgroundColor:'#2e2e2e', marginTop: '1rem'}}
+          style={{ backgroundColor: '#2e2e2e', marginTop: '1rem' }}
         />
         <TextField
           onChange={(event) => setCodigo(event.target.value)}
@@ -127,7 +127,9 @@ export default function NovoVideo({ categoria }) {
         <BtnContainer>
           <BtnSalvarLimpar limpar={limpar} />
 
-          <Button texto="Nova Categoria" to="/novacategoria" />
+          <Link to={'/novacategoria'}>
+            <Button variant="contained" size="large" >NovaCategoria</Button>
+          </Link>
         </BtnContainer>
 
       </Form>

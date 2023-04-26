@@ -1,14 +1,13 @@
 import { useEffect, useState } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { videosService } from 'Service/videos-service';
+import { validaCampos } from 'Models/Cadastro';
 import Home from './Paginas/Home';
 import NovoVideo from './Paginas/NovoVideo';
 import NovaCategoria from './Paginas/NovaCategoria';
 import Footer from './component/Footer';
 import Header from 'component/Header';
-import { validaCampos } from 'Models/Cadastro';
 import ValidacoesFormulario from 'Context/ValidacoesFormulario';
-
 
 export default function AppRoutes() {
   const [Categoria, setCategoria] = useState([]);

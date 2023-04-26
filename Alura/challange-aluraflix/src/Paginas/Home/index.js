@@ -4,7 +4,6 @@ import Banner from 'component/Banner';
 import Categorias from 'component/Categorias';
 import styled from 'styled-components';
 
-
 const CategoriasContainer = styled.div`
   margin-top: -2.5rem;
 `
@@ -42,7 +41,7 @@ export default function Home({ categoria }) {
       />
 
       {categoria.map((data) => (
-          <CategoriasContainer>
+          <CategoriasContainer key={data.id}>
           <Categorias
             key={data.id}
             id={data.id}
@@ -51,7 +50,7 @@ export default function Home({ categoria }) {
             descricao={data.descricao}
             videos={videos.filter(video => video.categoria === data.nome)}
             mostraVideo={mostraVideo}
-            banner={banner.categoria}
+            banner={banner}
           />
         </CategoriasContainer>
       ))}

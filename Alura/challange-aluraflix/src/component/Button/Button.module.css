@@ -23,15 +23,11 @@
   background-color: #6BD1FF;
   border: none;
   font-size: 60px;
-  width: 18.5rem;
+  width: 20rem;
   height: 6rem;
+  box-shadow: 5px 5px 6px rgba(0, 0, 0, 0.432);
 }
 
 .bannerBtn:hover {
   background-color: #92dcff;
-}
-
-.limpar {
-  background-color: var(--cor-preto-claro);
-  color: black;
 }

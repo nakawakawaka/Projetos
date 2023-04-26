@@ -1,37 +1,75 @@
-import AliceCarousel from 'react-alice-carousel';
-import 'react-alice-carousel/lib/alice-carousel.css';
+import Slider from "react-slick";
+import styled from "styled-components";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import "./Carousel.css"
 
-const handleDragStart = (e) => e.preventDefault();
+const settings = {
+  dots: false,
+  infinite: true,
+  speed: 500,
+  slidesToShow: 5,
+  slidesToScroll: 2,
+  responsive: [
+    {
+      breakpoint: 1024,
+      settings: {
+        slidesToShow: 3,
+        slidesToScroll: 3,
+        infinite: true
+      }
+    },
+    {
+      breakpoint: 800,
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 2,
+        initialSlide: 2
+      }
+    },
+    {
+      breakpoint: 480,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1
+      }
+    }
+  ]
+};
 
-const responsive = {
-  0: { items: 1 },
-  568: { items: 3, itemsFit: 'contain' },
-  1024: { items: 7 }
-}
+const VidesoContainer = styled.div`
+  img {
+    width:100%;
+    transition: transform 200ms ease-in-out;
+  }
+
+  img:hover {
+    transform: scale(1.05);
+  }
+`
 
 export default function Carousel({ videos, cor, mostraVideo }) {
+  const items = videos.map((video) => (
+    <VidesoContainer key={video.id}>
+      <img
+        key={video.id}
+        id={video.id}
+        src={video.img}
+        alt={video.titulo}
+        role="presentation"
+        style={{ border: `solid 3px ${cor}` }}
+        onClick={(e) => {
+          mostraVideo(e.target.id, cor)
+        }}
+      />
+    </VidesoContainer>
+  ))
+
   return (
-    <AliceCarousel
-      items={videos.map(video => (
-        <img
-          key={video.id}
-          id={video.id}
-          src={video.img}
-          onDragStart={handleDragStart}
-          alt={video.titulo}
-          role="presentation"
-          width="320"
-          height="186"
-          style={{ border: `solid 3px ${cor}` }}
-          onClick={(e) => { mostraVideo(e.target.id) }}
-        />
-      ))}
-      mouseTracking
-      disableDotsControls
-      disableButtonsControls
-      infinite
-      autoWidth
-      responsive={responsive}
-    />
-  )
+    <div>
+      <Slider {...settings}>
+        {items}
+      </Slider>
+    </div>
+  );
 }
